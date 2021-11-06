@@ -36,9 +36,6 @@ static void	static_ft_create_img(t_img *image, t_img *old, int scale)
 			color = *(unsigned int *)(old->addr
 					+ (unsigned int)(c_y * old->line_length * scale
 						+ c_x * scale * (old->bits_per_pixel / 8)));
-//			ft_printf("%X\n", color);
-			if (color == BLACK)
-				color = 0xFF00FF00;
 			static_ft_putpixelimg(image, c_x, c_y, color);
 			c_y++;
 		}
