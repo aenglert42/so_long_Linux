@@ -72,7 +72,7 @@ void	ft_start_game(t_data *data)
 {
 	data->move_count_str = ft_strjoin("movements ", ft_itoa(data->move_count)); //free on exit
 //	ft_printf("movements: 0\n");
-	data->mlx = mlx_init();
+	// data->mlx = mlx_init();
 	ft_load_images(data);
 	data->win = mlx_new_window(data->mlx, data->wwidth, data->wheight,
 			"so_long");

@@ -16,8 +16,8 @@
 # include "../libft/includes/libft.h"
 
 # define TILE_SIZE 32
-# define SCREENWIDTH 1280
-# define SCREENHEIGHT 800
+// # define SCREENWIDTH 1280
+// # define SCREENHEIGHT 800
 # define WINDOWBAR 64
 # define COUNTBAR 32
 # define PIXELLIMIT 3
@@ -101,6 +101,8 @@ typedef struct s_data
 	char	**map;
 	void	*mlx;
 	void	*win;
+	int		sheight;
+	int		swidth;
 	int		wheight;
 	int		wwidth;
 	int		mheight;

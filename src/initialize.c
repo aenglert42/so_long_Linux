@@ -38,8 +38,11 @@ void	ft_initialize(t_data *data)
 	data->img_size = TILE_SIZE;
 	static_ft_set_width(data);
 	static_ft_set_height(data);
-	while ((data->wwidth > SCREENWIDTH
-			|| data->wheight > SCREENHEIGHT - WINDOWBAR - COUNTBAR)
+	data->mlx = mlx_init();
+	mlx_get_screen_size(data->mlx, &data->swidth, &data->sheight);
+	// ft_printf("with: %d height: %d\n", data->swidth, data->sheight);
+	while ((data->wwidth > data->swidth
+			|| data->wheight > data->sheight - WINDOWBAR - COUNTBAR)
 		&& data->img_size > PIXELLIMIT)
 	{
 		data->img_size /= 2;
