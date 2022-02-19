@@ -29,6 +29,12 @@
 # define WALL_PATH "./img/wall.xpm"
 # define BLACK_PATH "./img/black.xpm"
 
+typedef enum e_x11masks
+{
+	KeyPressMask = 1L << 0,
+	StructureNotifyMask = 1L << 17,
+}	t_x11masks;
+
 typedef enum e_key
 {
 	W_KEY = 119,

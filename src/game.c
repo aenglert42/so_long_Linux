@@ -80,8 +80,8 @@ void	ft_start_game(t_data *data)
 	mlx_string_put(data->mlx, data->win, COUNTBAR / 2, (data->mheight + 1) * data->img_size + COUNTBAR * 2 / 3,
 			ORANGE, data->move_count_str);
 	mlx_do_key_autorepeaton(data->mlx);
-	mlx_hook(data->win, 2, 1L << 0, static_ft_key_hook, &data);
+	mlx_hook(data->win, 2, KeyPressMask, static_ft_key_hook, &data);
 //	mlx_key_hook(data->win, static_ft_key_hook, &data);
-	mlx_hook(data->win, 17, 1L << 17, ft_exit_program, data);
+	mlx_hook(data->win, 17, StructureNotifyMask, ft_exit_program, data);
 	mlx_loop(data->mlx);
 }
