@@ -1,0 +1,10 @@
+randomness
+waitfunction
+enemys
+at the end pause game and show "press esc to exit"
+use errno for system errors
+count down moevements till death
+implement level of difficulty (more/faster enemys, less movements)
+multiplayer
+random startposition
+highscore
