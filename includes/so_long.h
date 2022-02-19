@@ -29,6 +29,12 @@
 # define WALL_PATH "./img/wall.xpm"
 # define BLACK_PATH "./img/black.xpm"
 
+typedef enum e_x11events
+{
+	KeyPress = 2,
+	DestroyNotify = 17,
+}	t_x11events;
+
 typedef enum e_x11masks
 {
 	KeyPressMask = 1L << 0,
