@@ -21,6 +21,57 @@ static void	static_move_enemy(t_data *data, int dx, int dy)
 	static_put_enemy(data);
 }
 
+
+static void	static_enemy_move_random(t_data *data)
+{
+	int direction;
+	int count;
+
+	count = 0;
+	while (count < MAXTRYS)
+	{
+		direction = generate_random_number_from_1_to_max(data, 4);
+		// ft_printf("direction: %d\n", direction);
+		if (direction == UP)
+		{
+			if (static_is_valid_enemy_pos(data, data->e_x, data->e_y - 1))
+			{
+				static_move_enemy(data, 0, -1);
+				break ;
+			}
+		}
+		else if (direction == LEFT)
+		{
+			// (*data)->p_side = PLAYER_L_IMAGE;
+			// ft_put_player(*data);
+			if (static_is_valid_enemy_pos(data, data->e_x - 1, data->e_y))
+			{
+				static_move_enemy(data, -1, 0);
+				break ;
+			}
+		}
+		else if (direction == DOWN)
+		{
+			if (static_is_valid_enemy_pos(data, data->e_x, data->e_y + 1))
+			{
+				static_move_enemy(data, 0, 1);
+				break ;
+			}
+		}
+		else if (direction == RIGHT)
+		{
+			// (*data)->p_side = PLAYER_IMAGE;
+			// ft_put_player(*data);
+			if (static_is_valid_enemy_pos(data, data->e_x + 1, data->e_y))
+			{
+				static_move_enemy(data, 1, 0);
+				break ;
+			}
+		}
+		count ++;
+	}
+}
+
 void	enemy_move_vertical(t_data *data)
 {
 	int direction;
@@ -30,11 +81,15 @@ void	enemy_move_vertical(t_data *data)
 	{
 		if (static_is_valid_enemy_pos(data, data->e_x, data->e_y + 1))
 			static_move_enemy(data, 0, 1);
+		else
+			static_enemy_move_random(data);
 	}
 	else if (direction < 0)
 	{
 		if (static_is_valid_enemy_pos(data, data->e_x, data->e_y - 1))
 			static_move_enemy(data, 0, -1);
+		else
+			static_enemy_move_random(data);
 	}
 	else
 		enemy_move_horizontal(data);
@@ -49,11 +104,15 @@ void	enemy_move_horizontal(t_data *data)
 	{
 		if (static_is_valid_enemy_pos(data, data->e_x + 1, data->e_y))
 			static_move_enemy(data, 1, 0);
+		else
+			static_enemy_move_random(data);
 	}
 	else if (direction < 0)
 	{
 		if (static_is_valid_enemy_pos(data, data->e_x - 1, data->e_y))
 			static_move_enemy(data, -1, 0);
+		else
+			static_enemy_move_random(data);
 	}
 	else
 		enemy_move_vertical(data);
@@ -75,56 +134,6 @@ void	move_enemies(t_data *data)
 	if (data->e_x == data->p_x && data->e_y == data->p_y)
 		show_menu(data, "You lost!");
 }
-
-// void	move_enemies_random(t_data *data)
-// {
-// 	int direction;
-// 	int count;
-
-// 	count = 0;
-// 	while (count < MAXTRYS)
-// 	{
-// 		direction = generate_random_number_from_1_to_max(data, 4);
-// 		// ft_printf("direction: %d\n", direction);
-// 		if (direction == UP)
-// 		{
-// 			if (static_is_valid_enemy_pos(data, data->e_x, data->e_y - 1))
-// 			{
-// 				static_move_enemy(data, 0, -1);
-// 				break ;
-// 			}
-// 		}
-// 		else if (direction == LEFT)
-// 		{
-// 			// (*data)->p_side = PLAYER_L_IMAGE;
-// 			// ft_put_player(*data);
-// 			if (static_is_valid_enemy_pos(data, data->e_x - 1, data->e_y))
-// 			{
-// 				static_move_enemy(data, -1, 0);
-// 				break ;
-// 			}
-// 		}
-// 		else if (direction == DOWN)
-// 		{
-// 			if (static_is_valid_enemy_pos(data, data->e_x, data->e_y + 1))
-// 			{
-// 				static_move_enemy(data, 0, 1);
-// 				break ;
-// 			}
-// 		}
-// 		else if (direction == RIGHT)
-// 		{
-// 			// (*data)->p_side = PLAYER_IMAGE;
-// 			// ft_put_player(*data);
-// 			if (static_is_valid_enemy_pos(data, data->e_x + 1, data->e_y))
-// 			{
-// 				static_move_enemy(data, 1, 0);
-// 				break ;
-// 			}
-// 		}
-// 		count ++;
-// 	}
-// }
 
 void	set_enemies(t_data *data)
 {

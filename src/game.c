@@ -49,38 +49,30 @@ static int	static_ft_key_hook(int keycode, t_data **data)
 	else if (keycode == W_KEY)
 	{
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y - 1][(*data)->p_x]))
-		{
 			static_ft_move_player(data, (*data)->p_x, (*data)->p_y - 1);
-			move_enemies(*data);
-		}
+		move_enemies(*data);
 	}
 	else if (keycode == A_KEY)
 	{
 		(*data)->p_side = PLAYER_L_IMAGE;
 		ft_put_player(*data);
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y][(*data)->p_x - 1]))
-		{
 			static_ft_move_player(data, (*data)->p_x - 1, (*data)->p_y);
-			move_enemies(*data);
-		}
+		move_enemies(*data);
 	}
 	else if (keycode == S_KEY)
 	{
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y + 1][(*data)->p_x]))
-		{
 			static_ft_move_player(data, (*data)->p_x, (*data)->p_y + 1);
-			move_enemies(*data);
-		}
+		move_enemies(*data);
 	}
 	else if (keycode == D_KEY)
 	{
 		(*data)->p_side = PLAYER_IMAGE;
 		ft_put_player(*data);
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y][(*data)->p_x + 1]))
-		{
 			static_ft_move_player(data, (*data)->p_x + 1, (*data)->p_y);
-			move_enemies(*data);
-		}
+		move_enemies(*data);
 	}
 	return (0);
 }
