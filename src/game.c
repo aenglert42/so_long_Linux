@@ -18,6 +18,10 @@ static void	static_ft_move_player(t_data **data, int new_x, int new_y)
 		ft_put_space(*data, (*data)->p_x, (*data)->p_y);
 		(*data)->loot_count -= 1;
 	}
+	else if ((*data)->e_x == (*data)->p_x && (*data)->e_y == (*data)->p_y)
+	{
+		(*data)->e_status = false;
+	}
 	else if ((*data)->map[(*data)->p_y][(*data)->p_x] == EXIT)
 	{
 		ft_put_player(*data);

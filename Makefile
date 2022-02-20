@@ -46,7 +46,7 @@ link:
 
 $(NAME): $(OBJ_DIR) $(OBJS) $(DEPS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $@
-	@echo "\n$(GREEN)creating: $(NAME)$(NC)"
+	@echo "\n$(GREEN)$(NAME) created$(NC)"
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)

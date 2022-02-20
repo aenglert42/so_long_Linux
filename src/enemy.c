@@ -30,18 +30,14 @@ void	enemy_move_vertical(t_data *data)
 	{
 		if (static_is_valid_enemy_pos(data, data->e_x, data->e_y + 1))
 			static_move_enemy(data, 0, 1);
-		else
-			enemy_move_horizontal(data); //endless loop?
 	}
 	else if (direction < 0)
 	{
 		if (static_is_valid_enemy_pos(data, data->e_x, data->e_y - 1))
 			static_move_enemy(data, 0, -1);
-		else
-			enemy_move_horizontal(data); //endless loop?
 	}
 	else
-		enemy_move_horizontal(data); //endless loop?
+		enemy_move_horizontal(data);
 }
 
 void	enemy_move_horizontal(t_data *data)
@@ -53,25 +49,22 @@ void	enemy_move_horizontal(t_data *data)
 	{
 		if (static_is_valid_enemy_pos(data, data->e_x + 1, data->e_y))
 			static_move_enemy(data, 1, 0);
-		else
-			enemy_move_vertical(data); //endless loop?
 	}
 	else if (direction < 0)
 	{
 		if (static_is_valid_enemy_pos(data, data->e_x - 1, data->e_y))
 			static_move_enemy(data, -1, 0);
-		else
-			enemy_move_vertical(data); //endless loop?
 	}
 	else
-		enemy_move_vertical(data); //endless loop?
+		enemy_move_vertical(data);
 }
 
 void	move_enemies(t_data *data)
 {
 	int direction;
-	// int count;
 
+	if (data->e_status == false)
+		return ;
 	direction = generate_random_number_from_1_to_max(data, 2);
 	ft_printf("direction: %d\n", direction);
 	ft_printf("odd: %d\n", direction % 2);
@@ -79,50 +72,11 @@ void	move_enemies(t_data *data)
 		enemy_move_horizontal(data);
 	else
 		enemy_move_vertical(data);
-
-	// count = 0;
-	// while (count < MAXTRYS)
-	// {
-	// 	direction = generate_random_number_from_1_to_max(data, 4);
-	// 	// ft_printf("direction: %d\n", direction);
-	// 	if (direction == UP)
-	// 	{
-	// 		if (static_is_valid_enemy_pos(data, data->e_x, data->e_y - 1))
-	// 		{
-	// 			static_move_enemy(data, 0, -1);
-	// 			break ;
-	// 		}
-	// 	}
-	// 	else if (direction == LEFT)
-	// 	{
-	// 		// (*data)->p_side = PLAYER_L_IMAGE;
-	// 		// ft_put_player(*data);
-	// 		if (static_is_valid_enemy_pos(data, data->e_x - 1, data->e_y))
-	// 		{
-	// 			static_move_enemy(data, -1, 0);
-	// 			break ;
-	// 		}
-	// 	}
-	// 	else if (direction == DOWN)
-	// 	{
-	// 		if (static_is_valid_enemy_pos(data, data->e_x, data->e_y + 1))
-	// 		{
-	// 			static_move_enemy(data, 0, 1);
-	// 			break ;
-	// 		}
-	// 	}
-	// 	else if (direction == RIGHT)
-	// 	{
-	// 		// (*data)->p_side = PLAYER_IMAGE;
-	// 		// ft_put_player(*data);
-	// 		if (static_is_valid_enemy_pos(data, data->e_x + 1, data->e_y))
-	// 		{
-	// 			static_move_enemy(data, 1, 0);
-	// 			break ;
-	// 		}
-	// 	}
-	// 	count ++;
-	// }
+	if (data->e_x == data->p_x && data->e_y == data->p_y)
+	{
+		ft_printf("You lost!\n");
+		ft_exit_program(data);
+	}
 }
 
 // void	move_enemies_random(t_data *data)
