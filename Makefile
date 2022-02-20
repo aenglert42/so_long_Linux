@@ -17,7 +17,11 @@ SRCS :=	enemy.c \
 OBJS := $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 HEADERS := $(HEADER_DIR)*.h
 CC := gcc
-CFLAGS := -g -Wall -Werror -Wextra -I$(HEADER_DIR)
+ifeq ($(DEBUG),1)
+CFLAGS := -g -Wall -Wextra -Werror -D DEBUGGING=1 -I$(HEADER_DIR)
+else
+CFLAGS := -g -Wall -Wextra -Werror -D DEBUGGING=0 -I$(HEADER_DIR)
+endif
 AR := ar
 ARFLAGS := rcs
 RED := \033[0;31m
@@ -32,6 +36,7 @@ MLX_DIR := ./mlx/
 MLX := $(MLX_DIR)libmlx_Linux.a
 MLX_FLAGS := -lXext -lX11 -lm -lz
 DEPS := $(HEADERS) $(LIBFT) $(MLX)
+MAKE += --no-print-directory
 
 all: link $(NAME)
 
@@ -41,15 +46,17 @@ link:
 
 $(NAME): $(OBJ_DIR) $(OBJS) $(DEPS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $@
-	@echo "\n$(GREEN)$(NAME) created$(NC)"
+	@echo "\n$(GREEN)creating: $(NAME)$(NC)"
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
-	@echo "$(GREEN)creating: object-files: $(NC)\c"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS) ofilemessage
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo ".\c"
+
+ofilemessage:
+	@echo "compiling $(NAME)-object-files: \c"
 
 clean:
 	@rm -f $(OBJ_DIR)*.o
@@ -79,5 +86,7 @@ peace:
 	@echo "      \    \`.  /"
 	@echo "       |      |"
 	@echo "       |      |\n"
+
+.INTERMEDIATE: ofilemessage
 
 .PHONY: clean fclean all re link

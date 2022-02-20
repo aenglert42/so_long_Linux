@@ -9,3 +9,5 @@ implement level of difficulty (more/faster enemys, less movements)
 multiplayer
 random startposition
 highscore
+update mylibft
+update Makefile xclean
