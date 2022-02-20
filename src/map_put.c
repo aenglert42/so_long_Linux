@@ -12,6 +12,12 @@ void	ft_put_space(t_data *data, int x, int y)
 		x * data->img_size, y * data->img_size);
 }
 
+void	ft_put_tile(t_data *data, int x, int y, int tile)
+{
+	mlx_put_image_to_window(data->mlx, data->win, data->imgs[tile]->img,
+		x * data->img_size, y * data->img_size);
+}
+
 void	ft_put_countbar(t_data *data)
 {
 	int x;

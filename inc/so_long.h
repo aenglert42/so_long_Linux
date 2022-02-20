@@ -2,6 +2,7 @@
 # define SO_LONG_H
 # include "../mlx/mlx.h"
 # include "../libft/includes/libft.h"
+# include <stdlib.h>
 
 # define TILE_SIZE 32
 // # define SCREENWIDTH 1280

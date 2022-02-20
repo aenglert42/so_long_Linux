@@ -20,14 +20,14 @@ static void	static_ft_move_player(t_data **data, int new_x, int new_y)
 	}
 	else if ((*data)->e_x == (*data)->p_x && (*data)->e_y == (*data)->p_y)
 	{
-		ft_printf("You lost!\n");
-		ft_exit_program(*data);
+		show_menu(*data, "You lost!");
 	}
 	else if ((*data)->map[(*data)->p_y][(*data)->p_x] == EXIT)
 	{
 		ft_put_player(*data);
-		ft_printf("You finished the game with %d movements.\n", (*data)->move_count);
-		ft_exit_program(*data);
+		show_menu(*data, "You won!");
+		// ft_printf("You finished the game with %d movements.\n", (*data)->move_count);
+		// ft_exit_program(*data);
 	}
 	ft_put_player(*data);
 }

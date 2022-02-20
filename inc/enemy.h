@@ -4,6 +4,7 @@
 # include "so_long.h"
 # include "random.h"
 # include "map.h"
+# include "menu.h"
 
 # define MAXTRYS 100
 

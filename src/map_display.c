@@ -42,7 +42,7 @@ static void	static_ft_create_map(t_data *data)
 	}
 }
 
-static void	static_ft_create_background(t_data *data)
+void	ft_iterate_map(t_data *data, int tile)
 {
 	int	x;
 	int	y;
@@ -53,7 +53,7 @@ static void	static_ft_create_background(t_data *data)
 		x = 0;
 		while (data->map[y][x] != '\0')
 		{
-			ft_put_space(data, x, y);
+			ft_put_tile(data, x, y, tile);
 			data->mwidth = x;
 			x++;
 		}
@@ -64,7 +64,7 @@ static void	static_ft_create_background(t_data *data)
 
 void	ft_display_map(t_data *data)
 {
-	static_ft_create_background(data);
+	ft_iterate_map(data, SPACE_IMAGE);
 	static_ft_create_map(data);
 	ft_put_countbar(data);
 	ft_put_player(data);

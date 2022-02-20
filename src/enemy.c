@@ -73,10 +73,7 @@ void	move_enemies(t_data *data)
 	else
 		enemy_move_vertical(data);
 	if (data->e_x == data->p_x && data->e_y == data->p_y)
-	{
-		ft_printf("You lost!\n");
-		ft_exit_program(data);
-	}
+		show_menu(data, "You lost!");
 }
 
 // void	move_enemies_random(t_data *data)
