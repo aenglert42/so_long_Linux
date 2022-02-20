@@ -66,8 +66,8 @@ void	move_enemies(t_data *data)
 	if (data->e_status == false)
 		return ;
 	direction = generate_random_number_from_1_to_max(data, 2);
-	ft_printf("direction: %d\n", direction);
-	ft_printf("odd: %d\n", direction % 2);
+	// ft_printf("direction: %d\n", direction);
+	// ft_printf("odd: %d\n", direction % 2);
 	if (direction % 2)
 		enemy_move_horizontal(data);
 	else

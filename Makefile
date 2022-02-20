@@ -13,6 +13,7 @@ SRCS :=	enemy.c \
 		map_get_images.c \
 		map_put.c \
 		map_read.c \
+		menu.c \
 		random.c
 OBJS := $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 HEADERS := $(HEADER_DIR)*.h
