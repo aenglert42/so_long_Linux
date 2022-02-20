@@ -5,6 +5,8 @@
 # include "so_long.h"
 # include "exit.h"
 # include "map.h"
+# include "enemy.h"
+# include "random.h"
 
 void	ft_start_game(t_data *data);
 

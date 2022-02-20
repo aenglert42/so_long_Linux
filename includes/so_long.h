@@ -16,6 +16,7 @@
 # define SPACE_PATH "./img/space.xpm"
 # define WALL_PATH "./img/wall.xpm"
 # define BLACK_PATH "./img/black.xpm"
+# define ENEMY_PATH "./img/sperm32x32.xpm"
 
 typedef enum e_x11events
 {
@@ -56,7 +57,8 @@ typedef enum e_imgnr
 	PLAYER_L_IMAGE = 5,
 	EXIT_IMAGE = 4,
 	BLACK_IMAGE = 6,
-	IMAGES = 7,
+	ENEMY_IMAGE = 7,
+	IMAGES = 8,
 }	t_imgnr;
 
 typedef enum e_color
@@ -84,6 +86,12 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
+// typedef struct s_rand
+// {
+// 	unsigned int	number;
+// 	unsigned char	modifier;
+// }				t_rand;
+
 typedef struct s_data
 {
 	char	**map;
@@ -103,6 +111,10 @@ typedef struct s_data
 	int		move_count;
 	char	*move_count_str;
 	int		loot_count;
+	int		e_x;
+	int		e_y;
+	bool	e_status;
+	unsigned int	rand;
 }	t_data;
 
 #endif

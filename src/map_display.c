@@ -68,4 +68,5 @@ void	ft_display_map(t_data *data)
 	static_ft_create_map(data);
 	ft_put_countbar(data);
 	ft_put_player(data);
+	set_enemies(data);
 }

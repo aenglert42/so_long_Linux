@@ -65,6 +65,8 @@ static char	*static_ft_determine_path(int imagenumber)
 		return (LOOT_PATH);
 	else if (imagenumber == BLACK_IMAGE)
 		return (BLACK_PATH);
+	else if (imagenumber == ENEMY_IMAGE)
+		return (ENEMY_PATH);
 	else
 		return (EXIT_PATH);
 }

@@ -25,6 +25,7 @@ static void	static_ft_move_player(t_data **data, int new_x, int new_y)
 		ft_exit_program(*data);
 	}
 	ft_put_player(*data);
+	move_enemies(*data);
 }
 
 static bool	st_ft_val_move(t_data **data, char c)
@@ -80,6 +81,7 @@ void	ft_start_game(t_data *data)
 	mlx_string_put(data->mlx, data->win, COUNTBAR / 2, (data->mheight + 1) * data->img_size + COUNTBAR * 2 / 3,
 			ORANGE, data->move_count_str);
 	mlx_do_key_autorepeaton(data->mlx);
+	// ft_printf("random number: %d\n", generate_random_number_from_1_to_max(data, 4));
 	mlx_hook(data->win, KeyPress, KeyPressMask, static_ft_key_hook, &data);
 //	mlx_key_hook(data->win, static_ft_key_hook, &data);
 	mlx_hook(data->win, DestroyNotify, StructureNotifyMask, ft_exit_program, data);

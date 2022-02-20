@@ -1,6 +1,7 @@
 randomness
 waitfunction
 enemys
+use mlx loop for animations
 at the end pause game and show "press esc to exit"
 use errno for system errors
 count down moevements till death

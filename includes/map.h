@@ -4,6 +4,7 @@
 # include "exit.h"
 # include "initialize.h"
 # include "so_long.h"
+# include "enemy.h"
 
 int		ft_count_lines(char *filepath);
 void	ft_read_map(t_data *data, char *filepath);
