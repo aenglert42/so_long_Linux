@@ -25,7 +25,6 @@ static void	static_ft_move_player(t_data **data, int new_x, int new_y)
 		ft_exit_program(*data);
 	}
 	ft_put_player(*data);
-	move_enemies(*data);
 }
 
 static bool	st_ft_val_move(t_data **data, char c)
@@ -66,6 +65,7 @@ static int	static_ft_key_hook(int keycode, t_data **data)
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y][(*data)->p_x + 1]))
 			static_ft_move_player(data, (*data)->p_x + 1, (*data)->p_y);
 	}
+	move_enemies(*data);
 	return (0);
 }
 

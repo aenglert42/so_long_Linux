@@ -17,5 +17,7 @@ typedef enum e_direction
 
 void	set_enemies(t_data *data);
 void	move_enemies(t_data *data);
+void	enemy_move_horizontal(t_data *data);
+void	enemy_move_vertical(t_data *data);
 
 #endif
