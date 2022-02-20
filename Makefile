@@ -1,8 +1,9 @@
 NAME := so_long
 SRC_DIR := ./src/
 OBJ_DIR := ./obj/
-HEADER_DIR := ./includes/
-SRCS :=	exit.c \
+HEADER_DIR := ./inc/
+SRCS :=	enemy.c \
+		exit.c \
 		game.c \
 		initialize.c \
 		main.c \
@@ -11,8 +12,9 @@ SRCS :=	exit.c \
 		map_display.c \
 		map_get_images.c \
 		map_put.c \
-		map_read.c
-OBJS := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(wildcard $(SRC_DIR)*.c))
+		map_read.c \
+		random.c
+OBJS := $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 HEADERS := $(HEADER_DIR)*.h
 CC := gcc
 CFLAGS := -g -Wall -Werror -Wextra -I$(HEADER_DIR)
