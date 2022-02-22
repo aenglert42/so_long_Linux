@@ -1,6 +1,6 @@
 #ifndef EXIT_H
 # define EXIT_H
-# include "../libft/includes/libft.h"
+# include "../libft/inc/libft.h"
 # include "so_long.h"
 
 typedef enum e_errorcode

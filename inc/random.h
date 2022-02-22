@@ -1,6 +1,6 @@
 #ifndef RANDOM_H
 # define RANDOM_H
-# include "../libft/includes/libft.h"
+# include "../libft/inc/libft.h"
 # include "so_long.h"
 
 void	generate_seed(t_data *data);

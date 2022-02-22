@@ -1,7 +1,7 @@
 #ifndef GAME_H
 # define GAME_H
 # include "../mlx/mlx.h"
-# include "../libft/includes/libft.h"
+# include "../libft/inc/libft.h"
 # include "so_long.h"
 # include "exit.h"
 # include "map.h"

@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include "../mlx/mlx.h"
-# include "../libft/includes/libft.h"
+# include "../libft/inc/libft.h"
 # include <stdlib.h>
 
 # define TILE_SIZE 32

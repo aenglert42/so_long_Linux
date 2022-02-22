@@ -19,13 +19,7 @@ SRCS :=	enemy.c \
 OBJS := $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 HEADERS := $(HEADER_DIR)*.h
 CC := gcc
-ifeq ($(DEBUG),1)
-CFLAGS := -g -Wall -Wextra -Werror -D DEBUGGING=1 -I$(HEADER_DIR)
-else
-CFLAGS := -g -Wall -Wextra -Werror -D DEBUGGING=0 -I$(HEADER_DIR)
-endif
-AR := ar
-ARFLAGS := rcs
+CFLAGS := -g -Wall -Wextra -Werror
 RED := \033[0;31m
 GREEN := \033[0;32m
 YELLOW := \033[0;33m
@@ -47,29 +41,30 @@ link:
 	@make -C $(MLX_DIR)
 
 $(NAME): $(OBJ_DIR) $(OBJS) $(DEPS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $@
+	@$(CC) $(CFLAGS) -I$(HEADER_DIR) $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $@
 	@echo "\n$(GREEN)$(NAME) created$(NC)"
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS) ofilemessage
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(HEADER_DIR) -c $< -o $@
 	@echo ".\c"
 
 ofilemessage:
 	@echo "compiling $(NAME)-object-files: \c"
 
 clean:
-	@rm -f $(OBJ_DIR)*.o
+	@rm -rf $(OBJS) *.dSYM
 	@echo "$(RED)$(NAME)-object-files deleted$(NC)"
-	@make clean -C $(LIBFT_DIR)
-	@make clean -C $(MLX_DIR)
+	@echo "$(RED)$(NAME)-dSYM-files deleted$(NC)"
+	@$(MAKE) clean -C $(LIBFT_DIR)
+	@$(MAKE) clean -C $(MLX_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
 	@echo "$(RED)$(NAME) deleted$(NC)"
-	@make fclean -C $(LIBFT_DIR)
+	@$(MAKE) xclean -C $(LIBFT_DIR)
 
 re: fclean all
 

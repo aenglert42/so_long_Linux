@@ -1,6 +1,6 @@
 #ifndef MAP_H
 # define MAP_H
-# include "../libft/includes/libft.h"
+# include "../libft/inc/libft.h"
 # include "exit.h"
 # include "initialize.h"
 # include "so_long.h"

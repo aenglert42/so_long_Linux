@@ -1,6 +1,6 @@
 #ifndef MENU_H
 # define MENU_H
-# include "../libft/includes/libft.h"
+# include "../libft/inc/libft.h"
 # include "so_long.h"
 # include "exit.h"
 # include "map.h"
