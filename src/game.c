@@ -45,36 +45,36 @@ static bool	st_ft_val_move(t_data **data, char c)
 static int	static_ft_key_hook(int keycode, t_data **data)
 {
 	(*data)->timer = ON;
+	printf("%d\n", keycode);
 	if (keycode == ESC_KEY)
 		ft_exit_program(*data);
-	else if (keycode == W_KEY)
+	else if (keycode == W_KEY || keycode == UP_KEY)
 	{
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y - 1][(*data)->p_x]))
 			static_ft_move_player(data, (*data)->p_x, (*data)->p_y - 1);
-		// move_enemies(*data);
 	}
-	else if (keycode == A_KEY)
+	else if (keycode == A_KEY || keycode == LEFT_KEY)
 	{
 		(*data)->p_side = PLAYER_L_IMAGE;
 		ft_put_player(*data);
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y][(*data)->p_x - 1]))
 			static_ft_move_player(data, (*data)->p_x - 1, (*data)->p_y);
-		// move_enemies(*data);
 	}
-	else if (keycode == S_KEY)
+	else if (keycode == S_KEY || keycode == DOWN_KEY)
 	{
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y + 1][(*data)->p_x]))
 			static_ft_move_player(data, (*data)->p_x, (*data)->p_y + 1);
-		// move_enemies(*data);
 	}
-	else if (keycode == D_KEY)
+	else if (keycode == D_KEY || keycode == RIGHT_KEY)
 	{
 		(*data)->p_side = PLAYER_IMAGE;
 		ft_put_player(*data);
 		if (st_ft_val_move(data, (*data)->map[(*data)->p_y][(*data)->p_x + 1]))
 			static_ft_move_player(data, (*data)->p_x + 1, (*data)->p_y);
-		// move_enemies(*data);
 	}
+	if (!((*data)->counter % 3)) //magic number
+		move_enemies(*data);
+	(*data)->counter++;
 	return (0);
 }
 
@@ -90,10 +90,8 @@ void	ft_start_game(t_data *data)
 	mlx_string_put(data->mlx, data->win, COUNTBAR / 2, (data->mheight + 1) * data->img_size + COUNTBAR * 2 / 3,
 			ORANGE, data->move_count_str);
 	mlx_do_key_autorepeaton(data->mlx);
-	// ft_printf("random number: %d\n", generate_random_number_from_1_to_max(data, 4));
-	mlx_hook(data->win, KeyPress, KeyPressMask, static_ft_key_hook, &data);
-//	mlx_key_hook(data->win, static_ft_key_hook, &data);
 	mlx_hook(data->win, DestroyNotify, StructureNotifyMask, ft_exit_program, data);
+	mlx_hook(data->win, KeyPress, KeyPressMask, static_ft_key_hook, &data);
 	mlx_loop_hook(data->mlx, timer, data);
 	mlx_loop(data->mlx);
 }

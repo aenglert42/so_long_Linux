@@ -43,6 +43,10 @@ typedef enum e_key
 	A_KEY = 97,
 	S_KEY = 115,
 	D_KEY = 100,
+	UP_KEY = 65362,
+	LEFT_KEY = 65361,
+	DOWN_KEY = 65364,
+	RIGHT_KEY = 65363,
 	ESC_KEY = 65307,
 }	t_key;
 
@@ -93,12 +97,6 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
-// typedef struct s_rand
-// {
-// 	unsigned int	number;
-// 	unsigned char	modifier;
-// }				t_rand;
-
 typedef struct s_data
 {
 	char	**map;
@@ -123,6 +121,7 @@ typedef struct s_data
 	bool	e_status;
 	unsigned int	rand;
 	int		timer;
+	int		counter;
 }	t_data;
 
 #endif
