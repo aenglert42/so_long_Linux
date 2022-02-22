@@ -11,6 +11,7 @@ void	show_menu(t_data *data, char *str)
 {
 	int		len;
 
+	data->timer = OFF; //magic number
 	len = 10 * CHARWIDTH;
 	ft_put_countbar(data);
 	ft_iterate_map(data, BLACK_IMAGE);

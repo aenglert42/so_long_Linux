@@ -10,6 +10,8 @@ static bool static_is_valid_enemy_pos(t_data *data, int x, int y)
 {
 	if (data->map[y][x] == SPACE)
 		return (true);
+	else if (data->map[y][x] == START && data->timer > -1) //magic number
+		return (true);
 	return (false);
 }
 

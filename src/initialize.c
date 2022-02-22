@@ -35,6 +35,7 @@ void	ft_initialize(t_data *data)
 	data->p_side = PLAYER_IMAGE;
 	data->loot_count = 0;
 	data->move_count = 0;
+	data->timer = ON;
 	data->img_size = TILE_SIZE;
 	static_ft_set_width(data);
 	static_ft_set_height(data);

@@ -7,6 +7,7 @@
 # include "map.h"
 # include "enemy.h"
 # include "random.h"
+# include "timer.h"
 
 void	ft_start_game(t_data *data);
 

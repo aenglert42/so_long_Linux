@@ -19,6 +19,12 @@
 # define BLACK_PATH "./img/black.xpm"
 # define ENEMY_PATH "./img/sperm32x32.xpm"
 
+typedef enum e_timer
+{
+	ON = -1,
+	OFF = -2,
+}	t_timer;
+
 typedef enum e_x11events
 {
 	KeyPress = 2,
@@ -51,15 +57,15 @@ typedef enum e_map
 
 typedef enum e_imgnr
 {
-	WALL_IMAGE = 2,
-	LOOT_IMAGE = 3,
-	SPACE_IMAGE = 1,
-	PLAYER_IMAGE = 0,
-	PLAYER_L_IMAGE = 5,
-	EXIT_IMAGE = 4,
-	BLACK_IMAGE = 6,
-	ENEMY_IMAGE = 7,
-	IMAGES = 8,
+	PLAYER_IMAGE,
+	SPACE_IMAGE,
+	WALL_IMAGE,
+	LOOT_IMAGE,
+	EXIT_IMAGE,
+	PLAYER_L_IMAGE,
+	BLACK_IMAGE,
+	ENEMY_IMAGE,
+	IMAGES,
 }	t_imgnr;
 
 typedef enum e_color
@@ -116,6 +122,7 @@ typedef struct s_data
 	int		e_y;
 	bool	e_status;
 	unsigned int	rand;
+	int		timer;
 }	t_data;
 
 #endif

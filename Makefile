@@ -14,7 +14,8 @@ SRCS :=	enemy.c \
 		map_put.c \
 		map_read.c \
 		menu.c \
-		random.c
+		random.c \
+		timer.c
 OBJS := $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 HEADERS := $(HEADER_DIR)*.h
 CC := gcc
