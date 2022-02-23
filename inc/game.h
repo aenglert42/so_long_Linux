@@ -12,6 +12,6 @@
 
 # define INTERVAL 3
 
-void	ft_start_game(t_data *data);
+void	start_game(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 13:08:48 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:32:22 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 16:07:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 static void	static_execute_enemy_move(t_data *data, int direction)
 {
 	set_delta(data, direction);
-	ft_put_space(data, data->enemy.x, data->enemy.y);
+	put_tile(data, data->enemy.x, data->enemy.y, SPACE_IMAGE);
 	data->enemy.x += data->dx;
 	data->enemy.y += data->dy;
-	ft_put_enemy(data);
+	put_enemy(data);
 }
 
 static void	static_enemy_move_random(t_data *data)

@@ -21,8 +21,8 @@ typedef enum e_errorcode
 	ERRORS,
 }	t_errorcode;
 
-void	ft_exit_error(t_data *data, char *errorflag);
-int		ft_exit_program(t_data *data);
-void	ft_free_map(char **map);
+void	exit_error(t_data *data, char *errorflag);
+int		exit_program(t_data *data);
+void	free_map(char **map);
 
 #endif

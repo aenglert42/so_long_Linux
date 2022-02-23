@@ -6,13 +6,13 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 13:06:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 13:06:24 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 15:52:15 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-static bool	static_ft_is_rectangular(char **map, int numberofcolumns)
+static bool	static_is_rectangular(char **map, int numberofcolumns)
 {
 	int	y;
 	int	len;
@@ -28,7 +28,7 @@ static bool	static_ft_is_rectangular(char **map, int numberofcolumns)
 	return (true);
 }
 
-static bool	static_ft_is_valid_file(char **map)
+static bool	static_is_valid_file(char **map)
 {
 	int	x;
 	int	y;
@@ -51,24 +51,24 @@ static bool	static_ft_is_valid_file(char **map)
 	return (true);
 }
 
-void	ft_check_map(t_data *data, int numberoflines)
+void	check_map(t_data *data, int numberoflines)
 {
 	int		i;
 	char	errorflag[ERRORS + 1];
 	int		numberofcolumns;
 
-	ft_initialize_buffer_with(errorflag, '0', ERRORS);
-	if (!static_ft_is_valid_file(data->map))
-		ft_exit_error(data, "000000001");
+	initialize_buffer_with(errorflag, '0', ERRORS);
+	if (!static_is_valid_file(data->map))
+		exit_error(data, "000000001");
 	numberofcolumns = ft_strlen(*data->map);
-	if (!static_ft_is_rectangular(data->map, numberofcolumns))
-		ft_exit_error(data, "0001");
-	ft_check_setup(data->map, errorflag, numberofcolumns, numberoflines);
+	if (!static_is_rectangular(data->map, numberofcolumns))
+		exit_error(data, "0001");
+	check_setup(data->map, errorflag, numberofcolumns, numberoflines);
 	i = 0;
 	while (errorflag[i] != '\0')
 	{
 		if (errorflag[i] == '1')
-			ft_exit_error(data, errorflag);
+			exit_error(data, errorflag);
 		i++;
 	}
 }

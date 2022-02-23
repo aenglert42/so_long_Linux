@@ -3,7 +3,7 @@
 # include "../libft/inc/libft.h"
 # include "so_long.h"
 
-void	ft_initialize(t_data *data);
-void	ft_initialize_buffer_with(char *buffer, char c, int len);
+void	initialize_data_struct(t_data *data);
+void	initialize_buffer_with(char *buffer, char c, int len);
 
 #endif

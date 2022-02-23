@@ -6,16 +6,16 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:42:10 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:42:11 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 15:48:54 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "menu.h"
 
-static int	static_ft_key_hook(int keycode, t_data *data)
+static int	static_key_hook(int keycode, t_data *data)
 {
 	if (keycode == ESC_KEY)
-		ft_exit_program(data);
+		exit_program(data);
 	return (EXIT_SUCCESS);
 }
 
@@ -31,6 +31,6 @@ void	show_menu(t_data *data, char *str)
 	mlx_string_put(data->mlx, data->win, (data->grid.width / 2)
 		* data->img_size - len, (data->grid.height / 2) * data->img_size
 		+ CHARHEIGHT, ORANGE, "Press ESC to exit.");
-	mlx_hook(data->win, KeyPress, KeyPressMask, static_ft_key_hook, data);
+	mlx_hook(data->win, KeyPress, KeyPressMask, static_key_hook, data);
 	mlx_loop(data->mlx);
 }

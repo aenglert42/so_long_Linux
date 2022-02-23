@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 13:08:48 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 13:37:20 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 15:54:22 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void	set_enemies(t_data *data)
 		count ++;
 	}
 	if (data->enemy.status)
-		ft_put_enemy(data);
+		put_enemy(data);
 }

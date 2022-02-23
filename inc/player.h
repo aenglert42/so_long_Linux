@@ -10,6 +10,6 @@
 # include "timer.h"
 # include "utils.h"
 
-void	ft_move_player(t_data **data, int direction);
+void	move_player(t_data **data, int direction);
 
 #endif

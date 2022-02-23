@@ -6,13 +6,13 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:42:28 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:42:29 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 15:50:02 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "initialize.h"
 
-void	ft_initialize_buffer_with(char *buffer, char c, int len)
+void	initialize_buffer_with(char *buffer, char c, int len)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ void	ft_initialize_buffer_with(char *buffer, char c, int len)
 	buffer[i] = '\0';
 }
 
-static void	static_ft_set_height(t_data *data)
+static void	static_set_height(t_data *data)
 {
 	data->window.height = 0;
 	while (data->map[data->window.height] != NULL)
@@ -34,7 +34,7 @@ static void	static_ft_set_height(t_data *data)
 	data->window.height += COUNTBAR;
 }
 
-static void	static_ft_set_width(t_data *data)
+static void	static_set_width(t_data *data)
 {
 	int	len;
 
@@ -42,7 +42,7 @@ static void	static_ft_set_width(t_data *data)
 	data->window.width = len * data->img_size;
 }
 
-void	ft_initialize(t_data *data)
+void	initialize_data_struct(t_data *data)
 {
 	data->player.side = PLAYER_IMAGE;
 	data->loot_count = 0;
@@ -50,8 +50,8 @@ void	ft_initialize(t_data *data)
 	data->counter = 0;
 	data->timer = OFF;
 	data->img_size = TILE_SIZE;
-	static_ft_set_width(data);
-	static_ft_set_height(data);
+	static_set_width(data);
+	static_set_height(data);
 	data->mlx = mlx_init();
 	mlx_get_screen_size(data->mlx, &data->screen.width, &data->screen.height);
 	while ((data->window.width > data->screen.width
@@ -59,7 +59,7 @@ void	ft_initialize(t_data *data)
 		&& data->img_size > PIXELLIMIT)
 	{
 		data->img_size /= 2;
-		static_ft_set_width(data);
-		static_ft_set_height(data);
+		static_set_width(data);
+		static_set_height(data);
 	}
 }

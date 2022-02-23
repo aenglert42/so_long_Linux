@@ -6,13 +6,13 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:40:32 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:40:33 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 15:48:10 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exit.h"
 
-static void	static_ft_print_errormessage(char *errorflag)
+static void	static_print_errormessage(char *errorflag)
 {
 	char	*errormessage[ERRORS];
 	int		msglen;
@@ -41,7 +41,7 @@ static void	static_ft_print_errormessage(char *errorflag)
 	}
 }
 
-void	ft_free_map(char **map)
+void	free_map(char **map)
 {
 	int	y;
 
@@ -54,7 +54,7 @@ void	ft_free_map(char **map)
 	free(map);
 }
 
-void	ft_destroy_mlx(t_data *data)
+void	destroy_mlx(t_data *data)
 {
 	int	i;
 
@@ -72,21 +72,21 @@ void	ft_destroy_mlx(t_data *data)
 		mlx_destroy_window(data->mlx, data->win);
 }
 
-void	ft_exit_error(t_data *data, char *errorflag)
+void	exit_error(t_data *data, char *errorflag)
 {	
 	if (data != NULL && data->map != NULL)
-		ft_free_map(data->map);
+		free_map(data->map);
 	if (data != NULL)
-		ft_destroy_mlx(data);
-	static_ft_print_errormessage(errorflag);
+		destroy_mlx(data);
+	static_print_errormessage(errorflag);
 	exit(EXIT_FAILURE);
 }
 
-int	ft_exit_program(t_data *data)
+int	exit_program(t_data *data)
 {	
 	if (data->map != NULL)
-		ft_free_map(data->map);
-	ft_destroy_mlx(data);
+		free_map(data->map);
+	destroy_mlx(data);
 	free(data->move_count_str);
 	exit(EXIT_SUCCESS);
 }
