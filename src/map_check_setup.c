@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:33:20 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:52:15 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 22:00:40 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ static bool	static_is_closed_by_walls(char **map, int columns, int lines)
 	return (true);
 }
 
-void	check_setup(char **map, char *errorflag, int columns, int lines)
+void	check_setup(char **map, bool *errorflags, int columns, int lines)
 {
 	if (!static_is_closed_by_walls(map, columns, lines))
-		errorflag[4] = '1';
+		errorflags[WALLS] = true;
 	if (static_count_map_element(map, LOOT) < 1)
-		errorflag[7] = '1';
+		errorflags[NOLOOT] = true;
 	if (static_count_map_element(map, EXIT) < 1)
-		errorflag[6] = '1';
+		errorflags[NOEXIT] = true;
 	if (static_count_map_element(map, START) != 1)
-		errorflag[5] = '1';
+		errorflags[SPAWN] = true;
 }

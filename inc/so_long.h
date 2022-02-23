@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 16:26:24 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 16:26:30 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 21:59:40 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,24 @@
 # define WALL_PATH "./img/wall.xpm"
 # define BLACK_PATH "./img/black.xpm"
 # define ENEMY_PATH "./img/sperm32x32.xpm"
+
+typedef enum e_errorcode
+{
+	ARGUMENTS,
+	NOFILE,
+	SHAPE,
+	WALLS,
+	SPAWN,
+	NOEXIT,
+	NOLOOT,
+	WRONGFILE,
+	MALLOC,
+	OPEN,
+	CLOSE,
+	IMAGE,
+	ERRORS,
+	SETUP,
+}	t_errorcode;
 
 typedef enum e_timer
 {
@@ -137,6 +155,7 @@ typedef struct s_frame
 
 typedef struct s_data
 {
+	bool			errorflags[ERRORS];
 	struct s_frame	screen;
 	char			**map;
 	struct s_frame	grid;

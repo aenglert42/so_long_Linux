@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 13:06:23 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:52:15 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 22:11:44 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,19 @@ static bool	static_is_valid_file(char **map)
 void	check_map(t_data *data, int numberoflines)
 {
 	int		i;
-	char	errorflag[ERRORS + 1];
 	int		numberofcolumns;
 
-	initialize_buffer_with(errorflag, '0', ERRORS);
 	if (!static_is_valid_file(data->map))
-		exit_error(data, "000000001");
+		exit_error(data, WRONGFILE);
 	numberofcolumns = ft_strlen(*data->map);
 	if (!static_is_rectangular(data->map, numberofcolumns))
-		exit_error(data, "0001");
-	check_setup(data->map, errorflag, numberofcolumns, numberoflines);
+		exit_error(data, SHAPE);
+	check_setup(data->map, data->errorflags, numberofcolumns, numberoflines);
 	i = 0;
-	while (errorflag[i] != '\0')
+	while (i < ERRORS)
 	{
-		if (errorflag[i] == '1')
-			exit_error(data, errorflag);
+		if (data->errorflags[i] == true)
+			exit_error(data, SETUP);
 		i++;
 	}
 }

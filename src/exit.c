@@ -6,36 +6,36 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:40:32 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:48:10 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 22:12:24 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exit.h"
 
-static void	static_print_errormessage(char *errorflag)
+static void	static_print_errormessage(bool *errorflags)
 {
 	char	*errormessage[ERRORS];
 	int		msglen;
 	int		i;
 
-	errormessage[ERROR1] = "Too many arguments!\n";
-	errormessage[ERROR2] = "No map-file!\n";
-	errormessage[ERROR3] = "Map is not rectangular!\n";
-	errormessage[ERROR4] = "Map is not surrounded by walls!\n";
-	errormessage[ERROR5] = "Invalid number of starting positions!\n";
-	errormessage[ERROR6] = "Map does not have an exit!\n";
-	errormessage[ERROR7] = "Map does not have a collectible!\n";
-	errormessage[ERROR8] = "Invalid or empty map-file!\n";
-	errormessage[ERROR9] = "Malloc failed!\n";
-	errormessage[ERROR10] = "Open failed!\n";
-	errormessage[ERROR11] = "Close failed!\n";
-	errormessage[ERROR12] = "Failed to load image!\n";
+	errormessage[ARGUMENTS] = "Too many arguments!\n";
+	errormessage[NOFILE] = "No map-file!\n";
+	errormessage[SHAPE] = "Map is not rectangular!\n";
+	errormessage[WALLS] = "Map is not surrounded by walls!\n";
+	errormessage[SPAWN] = "Invalid number of starting positions!\n";
+	errormessage[NOEXIT] = "Map does not have an exit!\n";
+	errormessage[NOLOOT] = "Map does not have a collectible!\n";
+	errormessage[WRONGFILE] = "Invalid or empty map-file!\n";
+	errormessage[MALLOC] = "Malloc failed!\n";
+	errormessage[OPEN] = "Open failed!\n";
+	errormessage[CLOSE] = "Close failed!\n";
+	errormessage[IMAGE] = "Failed to load image!\n";
 	write(STDERR_FILENO, "Error\n", 6);
-	i = 1;
-	while (errorflag[i] != '\0')
+	i = 0;
+	while (i < ERRORS)
 	{
 		msglen = ft_strlen(errormessage[i]);
-		if (errorflag[i] == '1')
+		if (errorflags[i] == true)
 			write(STDERR_FILENO, errormessage[i], msglen);
 		i++;
 	}
@@ -72,13 +72,15 @@ void	destroy_mlx(t_data *data)
 		mlx_destroy_window(data->mlx, data->win);
 }
 
-void	exit_error(t_data *data, char *errorflag)
+void	exit_error(t_data *data, int error)
 {	
 	if (data != NULL && data->map != NULL)
 		free_map(data->map);
 	if (data != NULL)
 		destroy_mlx(data);
-	static_print_errormessage(errorflag);
+	if (error != SETUP)
+		data->errorflags[error] = true;
+	static_print_errormessage(data->errorflags);
 	exit(EXIT_FAILURE);
 }
 

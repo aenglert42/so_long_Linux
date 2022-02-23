@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:43:02 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:54:08 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 21:55:23 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static t_img	*static_get_img(t_img *old, t_data *data)
 
 	new = (t_img *)malloc(sizeof(t_img));
 	if (new == NULL)
-		exit_error(data, "0000000001");
+		exit_error(data, MALLOC);
 	new->img = mlx_new_image(data->mlx, data->img_size, data->img_size);
 	new->iheight = data->img_size;
 	new->iwidth = data->img_size;
@@ -96,7 +96,7 @@ void	load_images(t_data *data)
 		tmp.img = mlx_xpm_file_to_image(data->mlx, path,
 				&tmp.iheight, &tmp.iwidth);
 		if (tmp.img == NULL)
-			exit_error(data, "0000000000001");
+			exit_error(data, IMAGE);
 		data->imgs[i] = static_get_img(&tmp, data);
 		mlx_destroy_image(data->mlx, tmp.img);
 		i++;
