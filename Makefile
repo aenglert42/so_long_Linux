@@ -32,7 +32,10 @@ MLX_DIR := ./mlx/
 MLX := $(MLX_DIR)libmlx_Linux.a
 MLX_FLAGS := -lXext -lX11 -lm -lz
 DEPS := $(HEADERS) $(LIBFT) $(MLX)
-MAKE += --no-print-directory
+# MAKE += --no-print-directory
+ifndef VERBOSE
+MAKEFLAGS += --no-print-directory
+endif
 
 all: link $(NAME)
 
@@ -43,6 +46,7 @@ link:
 $(NAME): $(OBJ_DIR) $(OBJS) $(DEPS)
 	@$(CC) $(CFLAGS) -I$(HEADER_DIR) $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $@
 	@echo "\n$(GREEN)$(NAME) created$(NC)"
+	@echo "$(YELLOW)SUCCESFULLY COMPILED!$(NC)"
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)

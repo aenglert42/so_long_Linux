@@ -45,7 +45,6 @@ static bool	st_ft_val_move(t_data **data, char c)
 static int	static_ft_key_hook(int keycode, t_data **data)
 {
 	(*data)->timer = ON;
-	printf("%d\n", keycode);
 	if (keycode == ESC_KEY)
 		ft_exit_program(*data);
 	else if (keycode == W_KEY || keycode == UP_KEY)

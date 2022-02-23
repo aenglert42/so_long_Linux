@@ -35,16 +35,28 @@ OBJ_DIR = obj
 OBJ	= $(addprefix $(OBJ_DIR)/,$(SRC:%.c=%.o))
 CFLAGS	= -O3 -I$(INC)
 
+#aenglert
+RED := \033[0;31m
+GREEN := \033[0;32m
+YELLOW := \033[0;33m
+BLUE := \033[0;34m
+NC := \033[0m
+
 all	: $(NAME)
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: %.c ofilemessage
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	@echo ".\c"
+
+ofilemessage:
+	@echo "compiling $(NAME)-object-files: \c"
 
 $(NAME)	: $(OBJ)
-	ar -r $(NAME) $(OBJ)
-	ranlib $(NAME)
-	cp $(NAME) $(NAME_UNAME)
+	@ar -r $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@cp $(NAME) $(NAME_UNAME)
+	@echo "$(GREEN)$(NAME) created$(NC)"
 
 check: all
 	@test/run_tests.sh
@@ -57,7 +69,11 @@ show:
 	@printf "SRC		:\n	$(SRC)\n"
 	@printf "OBJ		:\n	$(OBJ)\n"
 
-clean	:
-	rm -rf $(OBJ_DIR)/ $(NAME) $(NAME_UNAME) *~ core *.core
+clean:
+	@rm -rf $(OBJ_DIR)/ $(NAME) $(NAME_UNAME) *~ core *.core
+	@echo "$(RED)$(NAME) deleted$(NC)"
+	@echo "$(RED)$(NAME_UNAME) deleted$(NC)"
+
+.INTERMEDIATE: ofilemessage
 
 .PHONY: all check show clean
