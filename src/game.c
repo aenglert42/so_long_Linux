@@ -5,10 +5,9 @@ static void	static_ft_move_player(t_data **data, int new_x, int new_y)
 	(*data)->move_count += 1;
 	ft_put_countbar(*data);
 	free((*data)->move_count_str);
-	(*data)->move_count_str = ft_strjoin("movements ", ft_itoa((*data)->move_count));
+	(*data)->move_count_str = ft_strjoin("movements ", ft_itoa((*data)->move_count)); // free?
 	mlx_string_put((*data)->mlx, (*data)->win, COUNTBAR / 2, ((*data)->mheight + 1) * (*data)->img_size + COUNTBAR * 2 / 3,
 			ORANGE, (*data)->move_count_str);
-//	ft_printf("movements: %d\n", (*data)->move_count);
 	ft_put_space(*data, (*data)->p_x, (*data)->p_y);
 	(*data)->p_x = new_x;
 	(*data)->p_y = new_y;
