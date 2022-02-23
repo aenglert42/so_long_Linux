@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   menu.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:42:10 by coder             #+#    #+#             */
+/*   Updated: 2022/02/23 15:42:11 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "menu.h"
 
 static int	static_ft_key_hook(int keycode, t_data *data)
@@ -13,11 +25,11 @@ void	show_menu(t_data *data, char *str)
 
 	data->timer = OFF;
 	len = 10 * CHARWIDTH;
-	// ft_put_countbar(data);
-	// ft_iterate_map(data, BLACK_IMAGE);
-	mlx_string_put(data->mlx, data->win, (data->grid.width / 2) * data->img_size - len, (data->grid.height / 2) * data->img_size,
-			ORANGE, str);
-	mlx_string_put(data->mlx, data->win, (data->grid.width / 2) * data->img_size - len, (data->grid.height / 2) * data->img_size
+	mlx_string_put(data->mlx, data->win, (data->grid.width / 2)
+		* data->img_size - len, (data->grid.height / 2) * data->img_size,
+		ORANGE, str);
+	mlx_string_put(data->mlx, data->win, (data->grid.width / 2)
+		* data->img_size - len, (data->grid.height / 2) * data->img_size
 		+ CHARHEIGHT, ORANGE, "Press ESC to exit.");
 	mlx_hook(data->win, KeyPress, KeyPressMask, static_ft_key_hook, data);
 	mlx_loop(data->mlx);

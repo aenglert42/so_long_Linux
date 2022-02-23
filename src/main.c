@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:40:28 by coder             #+#    #+#             */
+/*   Updated: 2022/02/23 15:40:29 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 #include "exit.h"
 #include "initialize.h"
@@ -23,6 +35,7 @@ static void	static_preinitialize_data_struct(t_data *data)
 	data->imgs[0] = NULL;
 	data->mlx = NULL;
 	data->win = NULL;
+	data->move_count_str = NULL;
 }
 
 int	main(int argc, char **argv)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:40:32 by coder             #+#    #+#             */
+/*   Updated: 2022/02/23 15:40:33 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "exit.h"
 
 static void	static_ft_print_errormessage(char *errorflag)
@@ -75,5 +87,6 @@ int	ft_exit_program(t_data *data)
 	if (data->map != NULL)
 		ft_free_map(data->map);
 	ft_destroy_mlx(data);
+	free(data->move_count_str);
 	exit(EXIT_SUCCESS);
 }

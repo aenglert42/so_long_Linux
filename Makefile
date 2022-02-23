@@ -3,6 +3,7 @@ SRC_DIR := ./src/
 OBJ_DIR := ./obj/
 HEADER_DIR := ./inc/
 SRCS :=	enemy.c \
+		enemy_movement.c \
 		exit.c \
 		game.c \
 		initialize.c \
@@ -16,7 +17,8 @@ SRCS :=	enemy.c \
 		player.c \
 		menu.c \
 		random.c \
-		timer.c
+		timer.c \
+		utils.c
 OBJS := $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 HEADERS := $(HEADER_DIR)*.h
 CC := gcc

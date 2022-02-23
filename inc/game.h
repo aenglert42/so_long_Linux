@@ -10,6 +10,8 @@
 # include "timer.h"
 # include "player.h"
 
+# define INTERVAL 3
+
 void	ft_start_game(t_data *data);
 
 #endif

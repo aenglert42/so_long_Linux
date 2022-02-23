@@ -137,6 +137,8 @@ typedef struct s_data
 	int				img_size;
 	struct s_player	player;
 	struct s_enemy	enemy;
+	int				dx;
+	int				dy;
 	int				move_count;
 	char			*move_count_str;
 	int				loot_count;

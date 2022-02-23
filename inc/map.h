@@ -13,6 +13,7 @@ void	ft_display_map(t_data *data);
 void	ft_put_space(t_data *data, int x, int y);
 void	ft_put_tile(t_data *data, int x, int y, int tile);
 void	ft_put_player(t_data *data);
+void	ft_put_enemy(t_data *data);
 void	ft_put_countbar(t_data *data);
 void	ft_check_setup(char **map, char *errorflag, int columns, int lines);
 void	ft_load_images(t_data *data);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_get_images.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:43:02 by coder             #+#    #+#             */
+/*   Updated: 2022/02/23 15:43:03 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "map.h"
 
 static void	static_ft_putpixelimg(t_img *image, int x, int y, int color)
@@ -47,7 +59,7 @@ static t_img	*static_ft_get_img(t_img *old, t_data *data)
 	old->addr = mlx_get_data_addr(old->img,
 			&old->bits_per_pixel, &old->line_length,
 			&old->endian);
-	 static_ft_create_img(new, old, old->iwidth / data->img_size);
+	static_ft_create_img(new, old, old->iwidth / data->img_size);
 	return (new);
 }
 

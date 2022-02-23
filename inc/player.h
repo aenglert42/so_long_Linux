@@ -8,6 +8,7 @@
 # include "enemy.h"
 # include "random.h"
 # include "timer.h"
+# include "utils.h"
 
 void	ft_move_player(t_data **data, int direction);
 
