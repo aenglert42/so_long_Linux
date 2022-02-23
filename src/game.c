@@ -1,6 +1,6 @@
 #include "game.h"
 
-static void	static_ft_move_player(t_data **data, int new_x, int new_y)
+static void	static_ft_move_player(t_data **data, int dx, int dy)
 {
 	(*data)->move_count += 1;
 	ft_put_countbar(*data);
@@ -9,8 +9,8 @@ static void	static_ft_move_player(t_data **data, int new_x, int new_y)
 	mlx_string_put((*data)->mlx, (*data)->win, COUNTBAR / 2, ((*data)->mheight + 1) * (*data)->img_size + COUNTBAR * 2 / 3,
 			ORANGE, (*data)->move_count_str);
 	ft_put_space(*data, (*data)->p_x, (*data)->p_y);
-	(*data)->p_x = new_x;
-	(*data)->p_y = new_y;
+	(*data)->p_x += dx;
+	(*data)->p_y += dy;
 	if ((*data)->map[(*data)->p_y][(*data)->p_x] == LOOT)
 	{
 		(*data)->map[(*data)->p_y][(*data)->p_x] = SPACE;
@@ -31,8 +31,11 @@ static void	static_ft_move_player(t_data **data, int new_x, int new_y)
 	ft_put_player(*data);
 }
 
-static bool	st_ft_val_move(t_data **data, char c)
+static bool	st_ft_val_move(t_data **data, int dx, int dy)
 {
+	char	c;
+
+	c = (*data)->map[(*data)->p_y + dy][(*data)->p_x + dx];
 	if (c == WALL)
 		return (false);
 	else if (c == EXIT && (*data)->loot_count != 0)
@@ -48,27 +51,27 @@ static int	static_ft_key_hook(int keycode, t_data **data)
 		ft_exit_program(*data);
 	else if (keycode == W_KEY || keycode == UP_KEY)
 	{
-		if (st_ft_val_move(data, (*data)->map[(*data)->p_y - 1][(*data)->p_x]))
-			static_ft_move_player(data, (*data)->p_x, (*data)->p_y - 1);
+		if (st_ft_val_move(data, STAY, X_UP))
+			static_ft_move_player(data, STAY, X_UP);
 	}
 	else if (keycode == A_KEY || keycode == LEFT_KEY)
 	{
 		(*data)->p_side = PLAYER_L_IMAGE;
 		ft_put_player(*data);
-		if (st_ft_val_move(data, (*data)->map[(*data)->p_y][(*data)->p_x - 1]))
-			static_ft_move_player(data, (*data)->p_x - 1, (*data)->p_y);
+		if (st_ft_val_move(data, Y_LEFT, STAY))
+			static_ft_move_player(data, Y_LEFT, STAY);
 	}
 	else if (keycode == S_KEY || keycode == DOWN_KEY)
 	{
-		if (st_ft_val_move(data, (*data)->map[(*data)->p_y + 1][(*data)->p_x]))
-			static_ft_move_player(data, (*data)->p_x, (*data)->p_y + 1);
+		if (st_ft_val_move(data, STAY, X_DOWN))
+			static_ft_move_player(data, STAY, X_DOWN);
 	}
 	else if (keycode == D_KEY || keycode == RIGHT_KEY)
 	{
 		(*data)->p_side = PLAYER_IMAGE;
 		ft_put_player(*data);
-		if (st_ft_val_move(data, (*data)->map[(*data)->p_y][(*data)->p_x + 1]))
-			static_ft_move_player(data, (*data)->p_x + 1, (*data)->p_y);
+		if (st_ft_val_move(data, Y_RIGHT, STAY))
+			static_ft_move_player(data, Y_RIGHT, STAY);
 	}
 	if (!((*data)->counter % 3)) //magic number
 		move_enemies(*data);

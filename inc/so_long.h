@@ -37,6 +37,15 @@ typedef enum e_x11masks
 	StructureNotifyMask = 1L << 17,
 }	t_x11masks;
 
+typedef enum e_pdirection
+{
+	X_UP = -1,
+	Y_LEFT = -1,
+	X_DOWN = 1,
+	Y_RIGHT = 1,
+	STAY = 0,
+}	t_pdirection;
+
 typedef enum e_key
 {
 	W_KEY = 119,
