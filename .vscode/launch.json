@@ -42,7 +42,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "/home/coder/repos/so_long_Linux/so_long",
-			"args": ["maps/carla10x10.ber"],
+			"args": ["maps/error.ber"],
 			// "args": ["1", "800", "200", "200", "7"],
 			// "args": ["5", "800", "200", "200", "7"],
 			// "stopAtEntry": false,

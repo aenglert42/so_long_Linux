@@ -23,6 +23,9 @@ int	main(int argc, char **argv)
 	t_data	data;
 	char	*filepath;
 
+	data.imgs[0] = NULL;
+	data.mlx = NULL;
+	data.win = NULL;
 	if (argc > 2)
 		ft_exit_error(NULL, "01");
 	if (argc < 2)

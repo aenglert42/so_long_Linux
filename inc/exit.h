@@ -5,20 +5,20 @@
 
 typedef enum e_errorcode
 {
-	SUCCESS = 0,
-	ERROR1 = 1,
-	ERROR2 = 2,
-	ERROR3 = 3,
-	ERROR4 = 4,
-	ERROR5 = 5,
-	ERROR6 = 6,
-	ERROR7 = 7,
-	ERROR8 = 8,
-	ERROR9 = 9,
-	ERROR10 = 10,
-	ERROR11 = 11,
-	ERROR12 = 12,
-	ERRORS = ERROR12 + 1,
+	SUCCESS,
+	ERROR1,
+	ERROR2,
+	ERROR3,
+	ERROR4,
+	ERROR5,
+	ERROR6,
+	ERROR7,
+	ERROR8,
+	ERROR9,
+	ERROR10,
+	ERROR11,
+	ERROR12,
+	ERRORS,
 }	t_errorcode;
 
 void	ft_exit_error(t_data *data, char *errorflag);

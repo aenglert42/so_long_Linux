@@ -50,6 +50,14 @@ typedef enum e_key
 	ESC_KEY = 65307,
 }	t_key;
 
+typedef enum e_direction
+{
+	UP = 1,
+	LEFT = 2,
+	DOWN = 3,
+	RIGHT = 4,
+}	t_direction;
+
 typedef enum e_map
 {
 	WALL = '1',
@@ -120,21 +128,21 @@ typedef struct s_frame
 typedef struct s_data
 {
 	struct s_frame	screen;
-	char	**map;
+	char			**map;
 	struct s_frame	grid;
-	void	*mlx;
-	void	*win;
+	void			*mlx;
+	void			*win;
 	struct s_frame	window;
-	t_img	*imgs[IMAGES];
-	int		img_size;
+	t_img			*imgs[IMAGES];
+	int				img_size;
 	struct s_player	player;
 	struct s_enemy	enemy;
-	int		move_count;
-	char	*move_count_str;
-	int		loot_count;
+	int				move_count;
+	char			*move_count_str;
+	int				loot_count;
 	unsigned int	rand;
-	int		timer;
-	int		counter;
+	int				timer;
+	int				counter;
 }	t_data;
 
 #endif
