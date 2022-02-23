@@ -127,6 +127,7 @@ void	move_enemies(t_data *data)
 	if (data->enemy.status == false)
 		return ;
 	direction = generate_random_number_from_1_to_max(data, 2);
+	printf("%d\n", direction);
 	if (direction % 2)
 		enemy_move_horizontal(data);
 	else
