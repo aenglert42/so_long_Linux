@@ -18,14 +18,19 @@ static bool	static_ft_is_valid_filetype(char *filepath, char *filetype)
 	return (false);
 }
 
+static void	static_preinitialize_data_struct(t_data *data)
+{
+	data->imgs[0] = NULL;
+	data->mlx = NULL;
+	data->win = NULL;
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
 	char	*filepath;
 
-	data.imgs[0] = NULL;
-	data.mlx = NULL;
-	data.win = NULL;
+	static_preinitialize_data_struct(&data);
 	if (argc > 2)
 		ft_exit_error(NULL, "01");
 	if (argc < 2)

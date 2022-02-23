@@ -42,7 +42,6 @@ void	ft_initialize(t_data *data)
 	static_ft_set_height(data);
 	data->mlx = mlx_init();
 	mlx_get_screen_size(data->mlx, &data->screen.width, &data->screen.height);
-	// ft_printf("with: %d height: %d\n", data->swidth, data->sheight);
 	while ((data->window.width > data->screen.width
 			|| data->window.height > data->screen.height - WINDOWBAR - COUNTBAR)
 		&& data->img_size > PIXELLIMIT)
