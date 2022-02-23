@@ -97,28 +97,38 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
+typedef struct s_player
+{
+	int		x;
+	int		y;
+	int		side;
+}				t_player;
+
+typedef struct s_enemy
+{
+	int		x;
+	int		y;
+	bool	status;
+}				t_enemy;
+
 typedef struct s_data
 {
-	char	**map;
-	void	*mlx;
-	void	*win;
 	int		sheight;
 	int		swidth;
-	int		wheight;
-	int		wwidth;
+	char	**map;
 	int		mheight;
 	int		mwidth;
+	void	*mlx;
+	void	*win;
+	int		wheight;
+	int		wwidth;
 	t_img	*imgs[IMAGES];
 	int		img_size;
-	int		p_x;
-	int		p_y;
-	int		p_side;
+	struct s_player	player;
+	struct s_enemy	enemy;
 	int		move_count;
 	char	*move_count_str;
 	int		loot_count;
-	int		e_x;
-	int		e_y;
-	bool	e_status;
 	unsigned int	rand;
 	int		timer;
 	int		counter;

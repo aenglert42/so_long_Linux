@@ -9,7 +9,7 @@ static int	static_ft_key_hook(int keycode, t_data **data)
 		ft_move_player(data, UP);
 	else if (keycode == A_KEY || keycode == LEFT_KEY)
 	{
-		(*data)->p_side = PLAYER_L_IMAGE;
+		(*data)->player.side = PLAYER_L_IMAGE;
 		ft_put_player(*data);
 		ft_move_player(data, LEFT);
 	}
@@ -17,7 +17,7 @@ static int	static_ft_key_hook(int keycode, t_data **data)
 		ft_move_player(data, DOWN);
 	else if (keycode == D_KEY || keycode == RIGHT_KEY)
 	{
-		(*data)->p_side = PLAYER_IMAGE;
+		(*data)->player.side = PLAYER_IMAGE;
 		ft_put_player(*data);
 		ft_move_player(data, RIGHT);
 	}
@@ -30,8 +30,6 @@ static int	static_ft_key_hook(int keycode, t_data **data)
 void	ft_start_game(t_data *data)
 {
 	data->move_count_str = ft_strjoin("movements ", ft_itoa(data->move_count)); //free on exit
-//	ft_printf("movements: 0\n");
-	// data->mlx = mlx_init();
 	ft_load_images(data);
 	data->win = mlx_new_window(data->mlx, data->wwidth, data->wheight,
 			"so_long");

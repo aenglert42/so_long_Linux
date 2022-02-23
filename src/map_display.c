@@ -29,8 +29,8 @@ static void	static_ft_create_map(t_data *data)
 		{
 			if (data->map[y][x] == START)
 			{
-				data->p_x = x;
-				data->p_y = y;
+				data->player.x = x;
+				data->player.y = y;
 			}
 			else if (data->map[y][x] == LOOT)
 				data->loot_count += 1;

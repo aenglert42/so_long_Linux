@@ -32,7 +32,7 @@ static void	static_ft_set_width(t_data *data)
 
 void	ft_initialize(t_data *data)
 {
-	data->p_side = PLAYER_IMAGE;
+	data->player.side = PLAYER_IMAGE;
 	data->loot_count = 0;
 	data->move_count = 0;
 	data->counter = 0;

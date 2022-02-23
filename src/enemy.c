@@ -3,7 +3,7 @@
 static void	static_put_enemy(t_data *data)
 {
 	mlx_put_image_to_window(data->mlx, data->win, data->imgs[ENEMY_IMAGE]->img,
-		data->e_x * data->img_size, data->e_y * data->img_size);
+		data->enemy.x * data->img_size, data->enemy.y * data->img_size);
 }
 
 static bool static_is_valid_enemy_pos(t_data *data, int x, int y)
@@ -17,9 +17,9 @@ static bool static_is_valid_enemy_pos(t_data *data, int x, int y)
 
 static void	static_move_enemy(t_data *data, int dx, int dy)
 {
-	ft_put_space(data, data->e_x, data->e_y);
-	data->e_x += dx;
-	data->e_y += dy;
+	ft_put_space(data, data->enemy.x, data->enemy.y);
+	data->enemy.x += dx;
+	data->enemy.y += dy;
 	static_put_enemy(data);
 }
 
@@ -36,7 +36,7 @@ static void	static_enemy_move_random(t_data *data)
 		// ft_printf("direction: %d\n", direction);
 		if (direction == UP)
 		{
-			if (static_is_valid_enemy_pos(data, data->e_x, data->e_y - 1))
+			if (static_is_valid_enemy_pos(data, data->enemy.x, data->enemy.y - 1))
 			{
 				static_move_enemy(data, 0, -1);
 				break ;
@@ -44,9 +44,9 @@ static void	static_enemy_move_random(t_data *data)
 		}
 		else if (direction == LEFT)
 		{
-			// (*data)->p_side = PLAYER_L_IMAGE;
+			// (*data)->side = PLAYER_L_IMAGE;
 			// ft_put_player(*data);
-			if (static_is_valid_enemy_pos(data, data->e_x - 1, data->e_y))
+			if (static_is_valid_enemy_pos(data, data->enemy.x - 1, data->enemy.y))
 			{
 				static_move_enemy(data, -1, 0);
 				break ;
@@ -54,7 +54,7 @@ static void	static_enemy_move_random(t_data *data)
 		}
 		else if (direction == DOWN)
 		{
-			if (static_is_valid_enemy_pos(data, data->e_x, data->e_y + 1))
+			if (static_is_valid_enemy_pos(data, data->enemy.x, data->enemy.y + 1))
 			{
 				static_move_enemy(data, 0, 1);
 				break ;
@@ -62,9 +62,9 @@ static void	static_enemy_move_random(t_data *data)
 		}
 		else if (direction == RIGHT)
 		{
-			// (*data)->p_side = PLAYER_IMAGE;
+			// (*data)->side = PLAYER_IMAGE;
 			// ft_put_player(*data);
-			if (static_is_valid_enemy_pos(data, data->e_x + 1, data->e_y))
+			if (static_is_valid_enemy_pos(data, data->enemy.x + 1, data->enemy.y))
 			{
 				static_move_enemy(data, 1, 0);
 				break ;
@@ -78,17 +78,17 @@ void	enemy_move_vertical(t_data *data)
 {
 	int direction;
 
-	direction = data->p_y - data->e_y;
+	direction = data->player.y - data->enemy.y;
 	if (direction > 0)
 	{
-		if (static_is_valid_enemy_pos(data, data->e_x, data->e_y + 1))
+		if (static_is_valid_enemy_pos(data, data->enemy.x, data->enemy.y + 1))
 			static_move_enemy(data, 0, 1);
 		else
 			static_enemy_move_random(data);
 	}
 	else if (direction < 0)
 	{
-		if (static_is_valid_enemy_pos(data, data->e_x, data->e_y - 1))
+		if (static_is_valid_enemy_pos(data, data->enemy.x, data->enemy.y - 1))
 			static_move_enemy(data, 0, -1);
 		else
 			static_enemy_move_random(data);
@@ -101,17 +101,17 @@ void	enemy_move_horizontal(t_data *data)
 {
 	int direction;
 
-	direction = data->p_x - data->e_x;
+	direction = data->player.x - data->enemy.x;
 	if (direction > 0)
 	{
-		if (static_is_valid_enemy_pos(data, data->e_x + 1, data->e_y))
+		if (static_is_valid_enemy_pos(data, data->enemy.x + 1, data->enemy.y))
 			static_move_enemy(data, 1, 0);
 		else
 			static_enemy_move_random(data);
 	}
 	else if (direction < 0)
 	{
-		if (static_is_valid_enemy_pos(data, data->e_x - 1, data->e_y))
+		if (static_is_valid_enemy_pos(data, data->enemy.x - 1, data->enemy.y))
 			static_move_enemy(data, -1, 0);
 		else
 			static_enemy_move_random(data);
@@ -124,16 +124,14 @@ void	move_enemies(t_data *data)
 {
 	int direction;
 
-	if (data->e_status == false)
+	if (data->enemy.status == false)
 		return ;
 	direction = generate_random_number_from_1_to_max(data, 2);
-	// ft_printf("direction: %d\n", direction);
-	// ft_printf("odd: %d\n", direction % 2);
 	if (direction % 2)
 		enemy_move_horizontal(data);
 	else
 		enemy_move_vertical(data);
-	if (data->e_x == data->p_x && data->e_y == data->p_y)
+	if (data->enemy.x == data->player.x && data->enemy.y == data->player.y)
 		show_menu(data, "You lost!");
 }
 
@@ -144,7 +142,7 @@ void	set_enemies(t_data *data)
 	int		count;
 
 	generate_seed(data);
-	data->e_status = false;
+	data->enemy.status = false;
 	count = 0;
 	while(count < MAXTRYS)
 	{
@@ -152,13 +150,13 @@ void	set_enemies(t_data *data)
 		y = generate_random_number_from_1_to_max(data, data->mheight - 1);
 		if (static_is_valid_enemy_pos(data, x, y))
 		{
-			data->e_status = true;
-			data->e_x = x;
-			data->e_y = y;
+			data->enemy.status = true;
+			data->enemy.x = x;
+			data->enemy.y = y;
 			break ;
 		}
 		count ++;
 	}
-	if (data->e_status)
+	if (data->enemy.status)
 		static_put_enemy(data);
 }

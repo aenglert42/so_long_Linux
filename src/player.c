@@ -13,18 +13,18 @@ static void	static_ft_execute_movement(t_data **data, int dx, int dy)
 {
 	(*data)->move_count += 1;
 	static_display_new_movementcount(data);
-	ft_put_space(*data, (*data)->p_x, (*data)->p_y);
-	(*data)->p_x += dx;
-	(*data)->p_y += dy;
-	if ((*data)->map[(*data)->p_y][(*data)->p_x] == LOOT)
+	ft_put_space(*data, (*data)->player.x, (*data)->player.y);
+	(*data)->player.x += dx;
+	(*data)->player.y += dy;
+	if ((*data)->map[(*data)->player.y][(*data)->player.x] == LOOT)
 	{
-		(*data)->map[(*data)->p_y][(*data)->p_x] = SPACE;
-		ft_put_space(*data, (*data)->p_x, (*data)->p_y);
+		(*data)->map[(*data)->player.y][(*data)->player.x] = SPACE;
+		ft_put_space(*data, (*data)->player.x, (*data)->player.y);
 		(*data)->loot_count -= 1;
 	}
-	else if ((*data)->e_x == (*data)->p_x && (*data)->e_y == (*data)->p_y)
+	else if ((*data)->enemy.x == (*data)->player.x && (*data)->enemy.y == (*data)->player.y)
 		show_menu(*data, "You lost!");
-	else if ((*data)->map[(*data)->p_y][(*data)->p_x] == EXIT)
+	else if ((*data)->map[(*data)->player.y][(*data)->player.x] == EXIT)
 	{
 		ft_put_player(*data);
 		show_menu(*data, "You won!");
@@ -38,7 +38,7 @@ static bool	st_ft_val_move(t_data **data, int dx, int dy)
 {
 	char	c;
 
-	c = (*data)->map[(*data)->p_y + dy][(*data)->p_x + dx];
+	c = (*data)->map[(*data)->player.y + dy][(*data)->player.x + dx];
 	if (c == WALL)
 		return (false);
 	else if (c == EXIT && (*data)->loot_count != 0)
