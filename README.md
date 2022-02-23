@@ -47,7 +47,7 @@ The aim of the exercise is to create a small 2D game in which the player has to 
   * at least one exit
   * at least one collectible
   * only one starting position
-* The map must be rectangular.
+* The map has to be rectangular.
 
 ## Prerequisites
 Tested on Ubuntu 20.04.3 LTS
