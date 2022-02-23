@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 16:26:24 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 21:59:40 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 22:53:39 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 # define WINDOWBAR 64
 # define COUNTBAR 32
 # define PIXELLIMIT 3
-# define EXIT_PATH "./img/exit.xpm"
+# define EXIT_PATH "./img/light.xpm"
 # define LOOT_PATH "./img/poo32x32.xpm"
 # define PLAYER_PATH "./img/fly_right32x32.xpm"
 # define PLAYER_L_PATH "./img/fly_left32x32.xpm"
-# define SPACE_PATH "./img/space.xpm"
+# define SPACE_PATH "./img/black.xpm"
 # define WALL_PATH "./img/wall.xpm"
 # define BLACK_PATH "./img/black.xpm"
-# define ENEMY_PATH "./img/sperm32x32.xpm"
+# define ENEMY_PATH "./img/angry_frog32x32.xpm"
 
 typedef enum e_errorcode
 {
