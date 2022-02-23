@@ -76,6 +76,8 @@ You are a fly and have to collect all the poo on the map and escape into the bri
 
 ```D``` / ```ARROW-RIGHT``` - Move right
 
+```ESC``` - Exit game
+
 ## Example
 _Screenshot_
 
