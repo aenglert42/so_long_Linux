@@ -13,6 +13,7 @@ SRCS :=	enemy.c \
 		map_get_images.c \
 		map_put.c \
 		map_read.c \
+		player.c \
 		menu.c \
 		random.c \
 		timer.c
@@ -32,10 +33,7 @@ MLX_DIR := ./mlx/
 MLX := $(MLX_DIR)libmlx_Linux.a
 MLX_FLAGS := -lXext -lX11 -lm -lz
 DEPS := $(HEADERS) $(LIBFT) $(MLX)
-# MAKE += --no-print-directory
-ifndef VERBOSE
 MAKEFLAGS += --no-print-directory
-endif
 
 all: link $(NAME)
 
