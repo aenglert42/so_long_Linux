@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:39:57 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 16:07:34 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 16:22:40 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	static_display_new_movementcount(t_data **data)
 {
 	put_countbar(*data);
 	free((*data)->move_count_str);
-	(*data)->move_count_str = ft_strjoin("movements ",
+	(*data)->move_count_str = join_and_free("movements ",
 			ft_itoa((*data)->move_count));
 	display_movementcount(*data);
 }

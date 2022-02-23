@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 16:26:24 by coder             #+#    #+#             */
+/*   Updated: 2022/02/23 16:26:30 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include "../mlx/mlx.h"
@@ -5,8 +17,6 @@
 # include <stdlib.h>
 
 # define TILE_SIZE 32
-// # define SCREENWIDTH 1280
-// # define SCREENHEIGHT 800
 # define WINDOWBAR 64
 # define COUNTBAR 32
 # define PIXELLIMIT 3

@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:57:06 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 15:59:51 by coder            ###   ########.fr       */
+/*   Updated: 2022/02/23 16:25:24 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static int	static_key_hook(int keycode, t_data **data)
 
 void	start_game(t_data *data)
 {
-	data->move_count_str = ft_strjoin("movements ", ft_itoa(data->move_count));
+	data->move_count_str = join_and_free("movements ",
+			ft_itoa(data->move_count));
 	load_images(data);
 	data->win = mlx_new_window(data->mlx, data->window.width,
 			data->window.height, "so_long");
