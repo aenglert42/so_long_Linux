@@ -54,10 +54,10 @@ void	ft_iterate_map(t_data *data, int tile)
 		while (data->map[y][x] != '\0')
 		{
 			ft_put_tile(data, x, y, tile);
-			data->mwidth = x;
+			data->grid.width = x;
 			x++;
 		}
-		data->mheight = y;
+		data->grid.height = y;
 		y++;
 	}
 }

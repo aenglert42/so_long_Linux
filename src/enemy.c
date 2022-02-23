@@ -146,8 +146,8 @@ void	set_enemies(t_data *data)
 	count = 0;
 	while(count < MAXTRYS)
 	{
-		x = generate_random_number_from_1_to_max(data, data->mwidth - 1);
-		y = generate_random_number_from_1_to_max(data, data->mheight - 1);
+		x = generate_random_number_from_1_to_max(data, data->grid.width - 1);
+		y = generate_random_number_from_1_to_max(data, data->grid.height - 1);
 		if (static_is_valid_enemy_pos(data, x, y))
 		{
 			data->enemy.status = true;

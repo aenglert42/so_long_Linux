@@ -31,10 +31,10 @@ void	ft_start_game(t_data *data)
 {
 	data->move_count_str = ft_strjoin("movements ", ft_itoa(data->move_count)); //free on exit
 	ft_load_images(data);
-	data->win = mlx_new_window(data->mlx, data->wwidth, data->wheight,
+	data->win = mlx_new_window(data->mlx, data->window.width, data->window.height,
 			"so_long");
 	ft_display_map(data);
-	mlx_string_put(data->mlx, data->win, COUNTBAR / 2, (data->mheight + 1) * data->img_size + COUNTBAR * 2 / 3,
+	mlx_string_put(data->mlx, data->win, COUNTBAR / 2, (data->grid.height + 1) * data->img_size + COUNTBAR * 2 / 3,
 			ORANGE, data->move_count_str);
 	mlx_do_key_autorepeaton(data->mlx);
 	mlx_hook(data->win, DestroyNotify, StructureNotifyMask, ft_exit_program, data);

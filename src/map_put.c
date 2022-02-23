@@ -23,10 +23,10 @@ void	ft_put_countbar(t_data *data)
 	int x;
 	
 	x = 0;
-	while (x <= data->mwidth)
+	while (x <= data->grid.width)
 	{
 		mlx_put_image_to_window(data->mlx, data->win, data->imgs[BLACK_IMAGE]->img,
-			x * data->img_size, (data->mheight + 1) * data->img_size);
+			x * data->img_size, (data->grid.height + 1) * data->img_size);
 		x++;
 	}
 }

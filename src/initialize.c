@@ -15,11 +15,11 @@ void	ft_initialize_buffer_with(char *buffer, char c, int len)
 
 static void	static_ft_set_height(t_data *data)
 {
-	data->wheight = 0;
-	while (data->map[data->wheight] != NULL)
-		data->wheight += 1;
-	data->wheight *= data->img_size;
-	data->wheight += COUNTBAR;
+	data->window.height = 0;
+	while (data->map[data->window.height] != NULL)
+		data->window.height += 1;
+	data->window.height *= data->img_size;
+	data->window.height += COUNTBAR;
 }
 
 static void	static_ft_set_width(t_data *data)
@@ -27,7 +27,7 @@ static void	static_ft_set_width(t_data *data)
 	int	len;
 
 	len = ft_strlen(*data->map);
-	data->wwidth = len * data->img_size;
+	data->window.width = len * data->img_size;
 }
 
 void	ft_initialize(t_data *data)
@@ -41,10 +41,10 @@ void	ft_initialize(t_data *data)
 	static_ft_set_width(data);
 	static_ft_set_height(data);
 	data->mlx = mlx_init();
-	mlx_get_screen_size(data->mlx, &data->swidth, &data->sheight);
+	mlx_get_screen_size(data->mlx, &data->screen.width, &data->screen.height);
 	// ft_printf("with: %d height: %d\n", data->swidth, data->sheight);
-	while ((data->wwidth > data->swidth
-			|| data->wheight > data->sheight - WINDOWBAR - COUNTBAR)
+	while ((data->window.width > data->screen.width
+			|| data->window.height > data->screen.height - WINDOWBAR - COUNTBAR)
 		&& data->img_size > PIXELLIMIT)
 	{
 		data->img_size /= 2;

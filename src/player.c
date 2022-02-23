@@ -5,7 +5,7 @@ static void	static_display_new_movementcount(t_data **data)
 	ft_put_countbar(*data);
 	free((*data)->move_count_str);
 	(*data)->move_count_str = ft_strjoin("movements ", ft_itoa((*data)->move_count)); // free?
-	mlx_string_put((*data)->mlx, (*data)->win, COUNTBAR / 2, ((*data)->mheight + 1) * (*data)->img_size + COUNTBAR * 2 / 3,
+	mlx_string_put((*data)->mlx, (*data)->win, COUNTBAR / 2, ((*data)->grid.height + 1) * (*data)->img_size + COUNTBAR * 2 / 3,
 			ORANGE, (*data)->move_count_str);
 }
 

@@ -111,17 +111,20 @@ typedef struct s_enemy
 	bool	status;
 }				t_enemy;
 
+typedef struct s_frame
+{
+	int		height;
+	int		width;
+}				t_frame;
+
 typedef struct s_data
 {
-	int		sheight;
-	int		swidth;
+	struct s_frame	screen;
 	char	**map;
-	int		mheight;
-	int		mwidth;
+	struct s_frame	grid;
 	void	*mlx;
 	void	*win;
-	int		wheight;
-	int		wwidth;
+	struct s_frame	window;
 	t_img	*imgs[IMAGES];
 	int		img_size;
 	struct s_player	player;
