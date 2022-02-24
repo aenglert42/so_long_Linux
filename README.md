@@ -1,20 +1,22 @@
 # so_long_Linux
-A small 2D game to learn how to work with windows, colors, events and textures.
+A small 2D game to learn how to work with windows, colors, events and textures. Inspired by the "42 Coding School" exercise "so_long" (October 2021).
 
 ## Table of contents
 * [Introduction](#introduction)
+  * [Allowed functions](#allowed-functions)
+  * [Description](#description)
+  * [General rules](#general-rules)
+  * [Map-file](#map-file)
+* [Approach](#approach)
 * [Prerequisites](#prerequisites)
 * [How to launch](#how-to-launch)
 * [How to play](#how-to-play)
-* [Map-file](#map-file)
+
 * [Example](#example)
 * [Notes](#notes)
 
 
 ## Introduction
-Inspired by the "42 Coding School" exercise "so_long" (October 2021).
-
-
 ### Allowed functions
 open, close, read, write, printf, malloc, free, perror, strerror, exit
 
@@ -31,8 +33,8 @@ The aim of the exercise is to create a small 2D game in which the player has to 
 * The program is dosplayed in a window.
 * The arrow-keys and/or the W, A, S, and D keys will be used to move around the map.
 * Pressing ESC or clicking on the close button on the window’s frame must close the window and quit the program cleanly.
-* As argument the program takes a map-file.
-* If a misconfiguration of any kind is encountered in the map-file, the program must exit properly and return "Error\n" followed by an explicit error message.
+* As argument the program takes a [map-file](#map-file).
+* If a misconfiguration of any kind is encountered in the [map-file](#map-file), the program must exit properly and return "Error\n" followed by an explicit error message.
 
 ### Map-file
 * The map-file has to be of type ".ber".
@@ -48,6 +50,9 @@ The aim of the exercise is to create a small 2D game in which the player has to 
   * at least one collectible
   * only one starting position
 * The map has to be rectangular.
+
+## Approach
+here I will explain, how I approached the problem.
 
 ## Prerequisites
 Tested on Ubuntu 20.04.3 LTS
@@ -79,9 +84,10 @@ You are a fly and have to collect all the poo on the map and escape into the bri
 ```ESC``` - Exit game
 
 ## Example
-_Screenshot_
+_Sample of a game on the map "example_small.ber"_
 
-![grafik](https://user-images.githubusercontent.com/80413516/155419745-fc588b53-a497-46e5-9f9d-d4d01bf446f0.png)
+![so_long](https://user-images.githubusercontent.com/80413516/155494401-f80fc365-a149-4cf7-bba0-c28b14634285.gif)
+
 
 ## Notes
 Images used from https://opengameart.org/ and https://www.seekpng.com/
