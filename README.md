@@ -56,7 +56,11 @@ here I will explain, how I approached the problem.
 
 ## Prerequisites
 Tested on Ubuntu 20.04.3 LTS
-* gcc
+* gcc (```sudo apt-get install gcc```)
+* make (```sudo apt-get install make```)
+* X11 include files (```sudo apt-get install xorg```)
+* XShm extension must be present (```sudo apt-get install libxext-dev```)
+* Utility functions from BSD systems - development files (```sudo apt-get installlibbsd-dev```)
 
 ## How to launch
 Compile the program via the Makefile by using ```$ make``` in the root directory of the repository.
