@@ -88,8 +88,10 @@ _Sample of a game on the map "example_small.ber"_
 
 ![so_long](https://user-images.githubusercontent.com/80413516/155494401-f80fc365-a149-4cf7-bba0-c28b14634285.gif)
 
+## Resources
+[MiniLibX documentation](https://harm-smits.github.io/42docs/libs/minilibx) made by [hsmits](https://github.com/harm-smits) and @jvan-sni.
+
+Images used from https://opengameart.org/ and https://www.seekpng.com/.
 
 ## Notes
 As there was no wait or sleep function allowed, I did something called "busywaiting" or "spinning" to create time-delays. In general this should not be done because it creates unneeded load on the CPU and the delay is unpredictable (depends on the computer and its workload).
-
-Images used from https://opengameart.org/ and https://www.seekpng.com/
