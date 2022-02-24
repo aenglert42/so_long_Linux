@@ -61,16 +61,16 @@ Tested on Ubuntu 20.04.3 LTS
 ## How to launch
 Compile the program via the Makefile by using ```$ make``` in the root directory of the repository.
 
-Run it by giving it the path to the map-file as argument (in this case the file "new.ber" within the directory "maps"):
+Run it by giving it the path to the map-file as argument (in this case the file "example.ber" within the directory "maps"):
 
 ```
-$ ./so_long maps/new.ber
+$ ./so_long maps/example.ber
 ```
 
 For the required map-file format see: [Map-file](#map-file)
 
 ## How to play
-You are a fly and have to collect all the poo on the map and escape into the bright light. But be careful, there is a hungry frog who wants to eat you. If you get caught, you lose.
+You are a fly and have to collect all the poo on the map and escape into the bright light. But be careful, there is a hungry frog who wants to eat you. If you get caught, you lose. You can create your own map, by creating a [map-file](#map-file).
 
 ### Keys
 ```W``` / ```ARROW-UP``` - Move upwards
