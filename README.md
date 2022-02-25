@@ -11,12 +11,13 @@ A small 2D game to learn how to work with windows, colors, events and textures. 
 * [Prerequisites](#prerequisites)
 * [How to launch](#how-to-launch)
 * [How to play](#how-to-play)
-
 * [Example](#example)
+* [Resources](#resources)
 * [Notes](#notes)
 
 
 ## Introduction
+###### <p align="right">Next: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 ### Allowed functions
 open, close, read, write, printf, malloc, free, perror, strerror, exit
 
@@ -52,9 +53,11 @@ The aim of the exercise is to create a small 2D game in which the player has to 
 * The map has to be rectangular.
 
 ## Approach
+###### <p align="right">Next: [Prerequisites](#prerequisites)&emsp;Previous: [Introduction](#introduction)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 here I will explain, how I approached the problem.
 
 ## Prerequisites
+###### <p align="right">Next: [How to launch](#how-to-launch)&emsp;Previous: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 Tested on Ubuntu 20.04.3 LTS
 * gcc (```sudo apt-get install gcc```)
 * make (```sudo apt-get install make```)
@@ -63,6 +66,7 @@ Tested on Ubuntu 20.04.3 LTS
 * Utility functions from BSD systems - development files (```sudo apt-get installlibbsd-dev```)
 
 ## How to launch
+###### <p align="right">Next: [How to play](#how-to-play)&emsp;Previous: [Prerequisites](#prerequisites)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 Compile the program via the Makefile by using ```$ make``` in the root directory of the repository.
 
 Run it by giving it the path to the map-file as argument (in this case the file "example.ber" within the directory "maps"):
@@ -74,6 +78,7 @@ $ ./so_long maps/example.ber
 For the required map-file format see: [Map-file](#map-file)
 
 ## How to play
+###### <p align="right">Next: [Example](#example)&emsp;Previous: [How to launch](#how-to-launch)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 You are a fly and have to collect all the poo on the map and escape into the bright light. But be careful, there is a hungry frog who wants to eat you. If you get caught, you lose. You can create your own map, by creating a [map-file](#map-file).
 
 ### Keys
@@ -88,14 +93,17 @@ You are a fly and have to collect all the poo on the map and escape into the bri
 ```ESC``` - Exit game
 
 ## Example
+###### <p align="right">Next: [Resources](#resources)&emsp;Previous: [How to play](#how-to-play)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 _Sample of a game on the map "example_small.ber"_
 
 ![so_long](https://user-images.githubusercontent.com/80413516/155494401-f80fc365-a149-4cf7-bba0-c28b14634285.gif)
 
 ## Resources
+###### <p align="right">Next: [Notes](#notes)&emsp;Previous: [Example](#example)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 [MiniLibX documentation](https://harm-smits.github.io/42docs/libs/minilibx) made by [hsmits](https://github.com/harm-smits) and @jvan-sni.
 
 Images used from https://opengameart.org/ and https://www.seekpng.com/.
 
 ## Notes
+###### <p align="right">Previous: [Resources](#resources)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 As there was no wait or sleep function allowed, I did something called "busywaiting" or "spinning" to create time-delays. In general this should not be done because it creates unneeded load on the CPU and the delay is unpredictable (depends on the computer and its workload).
