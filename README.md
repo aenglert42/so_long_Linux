@@ -7,7 +7,6 @@ A small 2D game to learn how to work with windows, colors, events and textures. 
   * [Description](#description)
   * [General rules](#general-rules)
   * [Map-file](#map-file)
-* [Approach](#approach)
 * [Prerequisites](#prerequisites)
 * [How to launch](#how-to-launch)
 * [How to play](#how-to-play)
@@ -17,7 +16,7 @@ A small 2D game to learn how to work with windows, colors, events and textures. 
 
 
 ## Introduction
-###### <p align="right">Next: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
+###### <p align="right">Next: [Prerequisites](#prerequisites)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 ### Allowed functions
 open, close, read, write, printf, malloc, free, perror, strerror, exit
 
@@ -52,12 +51,8 @@ The aim of the exercise is to create a small 2D game in which the player has to 
   * only one starting position
 * The map has to be rectangular.
 
-## Approach
-###### <p align="right">Next: [Prerequisites](#prerequisites)&emsp;Previous: [Introduction](#introduction)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
-here I will explain, how I approached the problem.
-
 ## Prerequisites
-###### <p align="right">Next: [How to launch](#how-to-launch)&emsp;Previous: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
+###### <p align="right">Next: [How to launch](#how-to-launch)&emsp;Previous: [Introduction](#introduction)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 Tested on Ubuntu 20.04.3 LTS
 * gcc (```sudo apt-get install gcc```)
 * make (```sudo apt-get install make```)
