@@ -7,6 +7,7 @@ A small 2D game to learn how to work with windows, colors, events and textures. 
   * [Description](#description)
   * [General rules](#general-rules)
   * [Map-file](#map-file)
+* [Approach](#approach)
 * [Prerequisites](#prerequisites)
 * [How to launch](#how-to-launch)
 * [How to play](#how-to-play)
@@ -16,7 +17,7 @@ A small 2D game to learn how to work with windows, colors, events and textures. 
 
 
 ## Introduction
-###### <p align="right">Next: [Prerequisites](#prerequisites)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
+###### <p align="right">Next: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 ### Allowed functions
 open, close, read, write, printf, malloc, free, perror, strerror, exit
 
@@ -51,8 +52,23 @@ The aim of the exercise is to create a small 2D game in which the player has to 
   * only one starting position
 * The map has to be rectangular.
 
+## Approach
+###### <p align="right">Next: [Prerequisites](#prerequisites)&emsp;Previous: [Introduction](#introduction)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
+
+I started with reading, storing and errorchecking the [map-file](#map-file). To make sure everything worked as it is supposed to, I printed the stored data into the terminal and checked weather I get back the map-file's original content.
+
+The main difficulty with this project for me was to get to know the [mlx-functions](https://harm-smits.github.io/42docs/libs/minilibx/prototypes.html) and to learn how they work or at least how to use them. First I learned [how to initialize mlx and open a window](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#initialization). The result is a black window. Then I tried to display pixels in different colors using [mlx_pixel_put](https://harm-smits.github.io/42docs/libs/minilibx/prototypes.html#mlx_pixel_put). Once I managed this, I arranged the colored pixels to display lines, then rectangels and so on.
+
+After that I learned [how to write pixels to an image](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#writing-pixels-to-a-image) and [how to put images to the window](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#pushing-images-to-a-window). This was the perfect function for my project, as you can also [load images](https://harm-smits.github.io/42docs/libs/minilibx/images.html#reading-images) into your program instead of drawing them pixel by pixel. The grid-like layout of the map is particularly suited to work with _tiles_. This means that each field of the map will be represented by a certain image in accordance to the map-file's definition.
+
+My next step was to display the map within the window using different images. I use one image per [map-file](#map-file) character. For diversion it would also be possible to user various images for the same map-file character and vary them. The only exception is the player where I use different images depending on the direction it is heading, but this is something I implemented later.
+
+Now I had to find a way to change what I see when pressing certain keys. Therefore I learned about [events](https://harm-smits.github.io/42docs/libs/minilibx/events.html#introduction) and how to [hook](https://harm-smits.github.io/42docs/libs/minilibx/events.html#hooking-into-events) into them. To see if I got it right, I startet printing the keycodes into the terminal.
+
+To get the impression of movement you can think of a flicker book, where you have an image that changes slightly page by page. Instead of pages you have a window and key-press by key-press you can put new images on top of the old ones. In my opinion it is enough to only put new images on the map-fields that change, but I guess you could also refresh the whole map each time, but I don't think that it is necessary.
+
 ## Prerequisites
-###### <p align="right">Next: [How to launch](#how-to-launch)&emsp;Previous: [Introduction](#introduction)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
+###### <p align="right">Next: [How to launch](#how-to-launch)&emsp;Previous: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
 Tested on Ubuntu 20.04.3 LTS
 * gcc (```sudo apt-get install gcc```)
 * make (```sudo apt-get install make```)
