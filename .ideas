@@ -1,0 +1,9 @@
+multiple enemys
+use mlx loop for animations
+use errno for system errors
+count down moevements till death
+implement level of difficulty (more/faster enemys, less movements)
+multiplayer
+menu (restart option)
+highscore
+minimize window

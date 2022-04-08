@@ -17,10 +17,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char		*ptr;
 	size_t		i;
 
-	ptr = malloc(len + 1);
-	if (!ptr || !s)
+	ptr = (char *)malloc((len + 1) * sizeof(char));
+	if (ptr == NULL || s == NULL)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start >= ft_strlen(s))
 	{
 		*ptr = '\0';
 		return (ptr);

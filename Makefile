@@ -33,7 +33,7 @@ LIBFT := $(LIBFT_DIR)libft.a
 LIBFT_OBJS := $(LIBFT_DIR)obj/*.o
 MLX_DIR := ./mlx/
 MLX := $(MLX_DIR)libmlx_Linux.a
-MLX_FLAGS := -lXext -lX11 -lm -lz
+MLX_FLAGS := -lXext -lX11 -lm -lz -lXrender
 DEPS := $(HEADERS) $(LIBFT) $(MLX)
 MAKEFLAGS += --no-print-directory
 

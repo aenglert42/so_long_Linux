@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:40:28 by coder             #+#    #+#             */
-/*   Updated: 2022/02/23 22:12:06 by coder            ###   ########.fr       */
+/*   Updated: 2022/04/08 12:11:55 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 	char	*filepath;
 
+	ft_printf("HELLO!\n");
 	static_preinitialize_data_struct(&data);
 	if (argc > 2)
 		exit_error(&data, ARGUMENTS);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aenglert <aenglert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: englot <englot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 20:43:33 by aenglert          #+#    #+#             */
-/*   Updated: 2021/07/15 19:35:07 by aenglert         ###   ########.fr       */
+/*   Updated: 2021/12/18 22:01:48 by englot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,16 +101,16 @@ char	**ft_split(char const *s, char c)
 	int		words;
 	char	**ptr;
 
-	if (!s)
-		return (0);
+	if (s == NULL)
+		return (NULL);
 	words = static_ft_count(s, c);
 	ptr = malloc(sizeof(char *) * (words + 1));
-	if (!ptr)
+	if (ptr == NULL)
 		return (NULL);
 	if (static_ft_fill(s, c, words, ptr) == 0)
 	{
 		free(ptr);
-		return (0);
+		return (NULL);
 	}
 	return (ptr);
 }

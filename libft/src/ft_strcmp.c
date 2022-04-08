@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: englot <englot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aenglert <aenglert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 20:41:18 by aenglert          #+#    #+#             */
-/*   Updated: 2021/12/18 13:06:47 by englot           ###   ########.fr       */
+/*   Created: 2021/11/25 11:29:46 by aenglert          #+#    #+#             */
+/*   Updated: 2021/11/25 11:31:08 by aenglert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+bool	ft_strcmp(char *str1, char *str2)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str1[i] != '\0' && str2[i] != '\0')
+	{
+		if (str1[i] != str2[i])
+			return (false);
 		i++;
-	return (i);
+	}
+	if (str1[i] != str2[i])
+		return (false);
+	return (true);
 }

@@ -5,12 +5,15 @@ HEADER_DIR := ./inc/
 SRCS :=	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
+		ft_dlist1.c \
+		ft_dlist2.c \
 		ft_gnl.c \
 		ft_hexlen.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
 		ft_isascii.c \
 		ft_isdigit.c \
+		ft_isnumber.c \
 		ft_isprint.c \
 		ft_itoa.c \
 		ft_lstadd_back.c \
@@ -20,6 +23,7 @@ SRCS :=	ft_atoi.c \
 		ft_lstiter.c \
 		ft_lstlast.c \
 		ft_lstnew.c \
+		ft_lstremovenode.c \
 		ft_lstsize.c \
 		ft_memchr.c \
 		ft_memcmp.c \
@@ -28,17 +32,22 @@ SRCS :=	ft_atoi.c \
 		ft_memmove.c \
 		ft_memset.c \
 		ft_numlen.c \
+		ft_printf_stderr.c \
+		ft_printf.c \
 		ft_putchar_fd.c \
 		ft_putcharret_fd.c \
 		ft_puteol_fd.c \
 		ft_putnbr_fd.c \
 		ft_putstr_fd.c \
 		ft_putstrret_fd.c \
+		ft_setcmp.c \
 		ft_split.c \
 		ft_strappend.c \
+		ft_strappend2.c \
 		ft_strcat_l.c \
 		ft_strchr_r.c \
 		ft_strchr.c \
+		ft_strcmp.c \
 		ft_strcmp_n.c \
 		ft_strcpy_l.c \
 		ft_strdup.c \
@@ -46,6 +55,7 @@ SRCS :=	ft_atoi.c \
 		ft_strjoin.c \
 		ft_strlen.c \
 		ft_strmapi.c \
+		ft_strreplace.c \
 		ft_strrev.c \
 		ft_strstr_n.c \
 		ft_strtrim.c \
@@ -63,7 +73,6 @@ GREEN := \033[0;32m
 YELLOW := \033[0;33m
 BLUE := \033[0;34m
 NC := \033[0m
-# MAKE += --no-print-directory
 
 all: $(NAME)
 
