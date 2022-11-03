@@ -71,7 +71,7 @@ To get the impression of movement you can think of a flicker book, where you hav
 
 ## Prerequisites
 ###### <p align="right">Next: [How to launch](#how-to-launch)&emsp;Previous: [Approach](#approach)&emsp;&emsp;[[Contents](#table-of-contents)]</p>
-Tested on Ubuntu 20.04.3 LTS
+Tested on Ubuntu 20.04.3 LTS ([link to macOS version](https://github.com/aenglert42/so_long_macOS))
 * gcc (```sudo apt-get install gcc```)
 * make (```sudo apt-get install make```)
 * X11 include files (```sudo apt-get install xorg```)
